@@ -5,7 +5,8 @@ PRAGMA foreign_keys=ON;
 
 DROP TABLE IF EXISTS User; 
 DROP TABLE IF EXISTS Restaurant; 
-DROP TABLE IF EXISTS Favourite;
+DROP TABLE IF EXISTS FavouriteDish;
+DROP TABLE IF EXISTS FavouriteRestaurant;
 DROP TABLE IF EXISTS Owner;
 DROP TABLE IF EXISTS Orders; 
 DROP TABLE IF EXISTS Review; 
@@ -23,12 +24,20 @@ CREATE TABLE User(
     CONSTRAINT UserPrimaryKeyDefinition PRIMARY KEY(IdUser)
 ); 
 
-CREATE TABLE Favourite(
-    IdFavourite INTEGER PRIMARY KEY,
+CREATE TABLE FavouriteDish(
+    IdFavouriteDish INTEGER PRIMARY KEY,
     IdUser INTEGER, 
     IdDishes INTEGER, 
     CONSTRAINT IdUserForeignKey FOREIGN KEY (IdUser) REFERENCES User,
     CONSTRAINT idDishForeignKey FOREIGN KEY (IdDishes) REFERENCES Dishes
+);
+
+CREATE TABLE FavouriteRestaurant(
+      IdFavouriteRestaurant INTEGER PRIMARY KEY,
+      IdUser INTEGER,
+      IdRestaurant INTEGER,
+      CONSTRAINT IdUserForeignKey FOREIGN KEY (IdUser) REFERENCES User,
+      CONSTRAINT IdRestaurantForeignKey FOREIGN KEY (IdRestaurant) REFERENCES Dishes
 );
 
 CREATE TABLE Orders(
@@ -44,14 +53,13 @@ CREATE TABLE Orders(
 
 
 CREATE TABLE Customer(
-    IdUser INTEGER, 
-    IdFavourite INTEGER, 
-    IdOrders INTEGER, 
-    CONSTRAINT IdFavouriteForeignKey FOREIGN KEY (IdFavourite) REFERENCES Favourite, 
+    IdUser INTEGER,
+    IdOrders INTEGER,
     CONSTRAINT IdOrdersForeignKey FOREIGN KEY (IdOrders) REFERENCES Orders, 
     CONSTRAINT IdUserForeignKey FOREIGN KEY (IdUser) REFERENCES User, 
     CONSTRAINT CustomerPrimaryKeyDefinition PRIMARY KEY(IdUser)
-); 
+);
+
 
 CREATE TABLE Restaurant(
     IdRestaurant INTEGER PRIMARY KEY,
