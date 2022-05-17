@@ -9,7 +9,7 @@
 body{
     display: grid; 
     grid-template-columns: auto 1fr;
-    grid-template-rows: auto 1fr auto;
+    grid-template-rows: auto auto 1fr auto;
     margin: 0px;
     min-height: 100vh;
 }
@@ -103,15 +103,12 @@ header a:nth-child(4){
     color: black;
 }
 
-.restaurants{
-    grid-row-start: 2; 
-    grid-row-end: 3;
-    grid-column-start: 2; 
-    grid-column-end: 3;
-    background-color: white;
-}
 
-section h1{
+h1{
+    grid-column-start: 2;
+    grid-column-end: 3;
+    grid-row-start: 2;
+    grid-row-end: 3; 
     text-align: center;
     font-weight: 900;
 }
@@ -120,7 +117,7 @@ aside{
     grid-column-start:1; 
     grid-column-end: 2; 
     grid-row-start: 2;
-    grid-row-end: 3; 
+    grid-row-end: 4; 
     margin-left: 1em;
     position: sticky;
 }
@@ -129,8 +126,8 @@ footer{
     list-style-type: none;
     grid-column-start: 1;
     grid-column-end: 3;
-    grid-row-start: 3;
-    grid-row-end: 4; 
+    grid-row-start: 4;
+    grid-row-end: 5; 
     background-color: black;
     position: sticky; 
     top: 100%; 
@@ -167,11 +164,11 @@ footer ul li a{
     color: white;
 }
 
-.restaurants ul{
-    list-style-type: none;
-}
-
 #toprated{
+    grid-column-start: 2;
+    grid-column-end: 3;
+    grid-row-start: 3;
+    grid-row-end: 4;
     display: flex; 
     justify-content: center;
     flex-direction: wrap; 
@@ -181,11 +178,11 @@ footer ul li a{
     margin-top: 0px;
 }
 
-#toprated li{
+#toprated article{
     margin: 1em;
 }
 
-#toprated li img{
+#toprated article img{
     height: 16em; 
     width: 16em; 
     display: block;
@@ -194,7 +191,7 @@ footer ul li a{
 /* 
 Text inside image (disabled temporarly)
 
-#toprated li h2{
+#toprated article h2{
     text-shadow: 2px 2px 1px #000000;
     position: absolute;
     text-align: center;
@@ -204,7 +201,7 @@ Text inside image (disabled temporarly)
 }
 */
 
-#toprated li h2 a{
+#toprated article h2 a{
     color:black; 
     font-size: 20px;
     font-weight: bold;
