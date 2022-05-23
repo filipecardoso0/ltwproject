@@ -3,7 +3,7 @@ let count = 0
 function showLoginForm(){
     const loginbtn = document.querySelector("header a:nth-child(3)")
 
-    const bg = document.querySelector("#modalbackground")
+    const bg = document.querySelector("#forms")
 
         
     //Only opens modal if there is no modal open
@@ -19,7 +19,7 @@ function showLoginForm(){
 function showRegisterForm(){
     const registerbtn = document.querySelector("header a:nth-child(4)")
 
-    const bg = document.querySelector("#modalbackground")
+    const bg = document.querySelector("#forms")
 
     registerbtn.addEventListener("click", () => {
         //Only opens modal if there is no modal open
@@ -41,14 +41,14 @@ function hideForm(){
 
 function addBackgroundColour(){
     //Changes body background colour in order to fake a blur effect
-    const bg = document.querySelector("#modalbackground")
+    const bg = document.querySelector("#forms")
     bg.classList.add("modalbody")
 
 }
 
 function removeBackgroundColour(){
     //Changes body background colour in order to remove the blur effect
-    const bg = document.querySelector("#modalbackground")
+    const bg = document.querySelector("#forms")
     bg.classList.remove("modalbody")
 }
 
@@ -68,7 +68,7 @@ function cancelModalFormOnCancelClick(){
 }
 
 function cancelModalFormOnBackgroundClick(){
-    let bg = document.getElementById("modalbackground")
+    let bg = document.getElementById("forms")
 
     window.addEventListener("click", function(event) {
         if (event.target == bg) {
