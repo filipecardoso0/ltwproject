@@ -1,0 +1,56 @@
+/*Font Import*/
+@import url('https://fonts.googleapis.com/css2?family=Heebo:wght@100;400&family=Koulen&display=swap');
+
+*{
+    text-decoration: none;
+    font-family: 'Heebo', sans-serif;
+}
+
+body{
+    display: grid; 
+    grid-template-columns: auto 1fr;
+    grid-template-rows: auto auto auto auto;
+    margin: 0px;
+    min-height: 100vh;
+}
+
+h1{
+    grid-column-start: 2;
+    grid-column-end: 3;
+    grid-row-start: 2;
+    grid-row-end: 3; 
+    text-align: center;
+    font-weight: 900;
+    margin-top: 0.5em;
+}
+
+#categorias{
+    grid-column-start:1; 
+    grid-column-end: 2; 
+    grid-row-start: 2;
+    grid-row-end: 4; 
+    margin-left: 1em;
+    position: sticky;
+}
+
+#categorias a{
+    color: black;
+}
+
+#carta h2{
+    margin-left: 2.2em;
+}
+
+#carta{
+    grid-row: 3/4; 
+    grid-column: 2/3; 
+    display: grid;  
+}
+
+#carta article{
+    display: flex; 
+    flex-direction: row; 
+    flex-grow: 1;
+    justify-content: space-around;
+}
+
