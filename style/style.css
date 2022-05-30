@@ -40,6 +40,15 @@ header a:first-child{
     grid-row-end: 2;
 }
 
+header a:nth-child(5){
+    color: white;
+    text-align: center;
+    grid-column-start: 5;
+    grid-column-end: 6;
+    grid-row-start: 1;
+    grid-row-end: 2;
+}
+
 #searchbar{
     grid-column-start: 2;
     grid-column-end: 3;
