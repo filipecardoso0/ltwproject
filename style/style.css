@@ -209,19 +209,6 @@ footer ul li a{
     display: block;
 }
 
-/* 
-Text inside image (disabled temporarly)
-
-#toprated article h2{
-    text-shadow: 2px 2px 1px #000000;
-    position: absolute;
-    text-align: center;
-    padding-top: 3.5em;
-    padding-left: 0.1em;
-    max-width: 20%;
-}
-*/
-
 #toprated article h2 a{
     color:black; 
     font-size: 20px;
