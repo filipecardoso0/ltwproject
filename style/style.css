@@ -7,20 +7,21 @@
 }
 
 body{
+    margin: 0px;
+    min-height: 100vh;
     display: grid; 
     grid-template-columns: auto 1fr;
     grid-template-rows: auto auto 1fr auto;
-    margin: 0px;
-    min-height: 100vh;
 }
+
 
 header{
     display: grid;
     grid-column: 1/3;
     grid-row-start: 1;
     grid-row-end: 2;
-    grid-template-columns: 1fr 2fr 1fr 1fr 1fr;
-    grid-template-rows: auto auto auto auto; 
+    grid-template-columns: 0.2fr 0.5fr auto auto auto;
+    grid-template-rows: auto; 
 }
 
 header{
@@ -53,14 +54,28 @@ header a:nth-child(5){
     grid-column-end: 3;
     grid-row-start: 1;
     grid-row-end: 2;
-    border-radius: 5px;
-    border-color: white;
+    position: relative;
 }
 
-#searchbar:focus{
+#searchbar input{
+    width: 100%;
+    border-radius: 5px;
+    border-color: white;
+    border-style: solid;
+    width: 95%;
+    padding-left: 25px;
+}
+
+#searchbar input:focus{
     outline: none !important;
     border:1px solid black;
     box-shadow: 0 0 10px white;
+}
+
+#searchbar i{
+    position: absolute;
+    left: 6px; 
+    top: 5px; 
 }
 
 #shopping-cart{
@@ -68,8 +83,7 @@ header a:nth-child(5){
     grid-column-end: 4;
     grid-row-start: 1;
     grid-row-end: 2;
-    margin-left: 40%; 
-    margin-right: 40%;
+    margin-left: 50%;
 }
 
 #shopping-cart::after{
@@ -84,8 +98,7 @@ header a:nth-child(3){
     grid-column-end: 5;
     grid-row-start: 1;
     grid-row-end: 2; 
-    margin-left: 61%; 
-    margin-right: 15%;
+    margin-left: 59%;
     /* Code for setting border arround login anchor*/
     border-radius: 15px;
     background: white;
@@ -101,8 +114,7 @@ header a:nth-child(4){
     grid-column-end: 6;
     grid-row-start: 1;
     grid-row-end: 2;
-    margin-left: 15%; 
-    margin-right: 50%;
+    margin-left: 1%; 
     /* Code for setting border arround register anchor*/
     border-radius: 15px;
     background: white;
@@ -224,4 +236,11 @@ Text inside image (disabled temporarly)
 #filters{
     display: flex; 
     flex-direction: column;
+}
+
+.modalbody{
+    position: fixed;
+    background-color: rgba(0, 0, 0, 0.8);
+    width: 100%; 
+    height: 100%; 
 }

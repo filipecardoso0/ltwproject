@@ -11,14 +11,19 @@
 <body>
     <section id="loginregister">
         <form>
-            <h1>Please Sign in to Continue</h1>
-            <label for="username">Username:
-                <input type="text" name="username" id="username">
-            </label>
-            <label for="password">Password:
-                <input type="password" name="password" id="password">
-            </label>
-            <button formaction="" formmethod="post" type="submit" id="loginbtn">Log in</button>
+            <span><i class="fa-solid fa-circle-xmark"></i></span>
+            <h1>Login</h1>
+            <section id="username">
+                <label for="username">Username:</label>
+                    <input type="text" name="username" class="textinput" required>
+                    <i class="fa-solid fa-user-tie"></i>
+            </section>
+            <section id="password"> 
+            <label for="password">Password:</label>
+                <input type="password" name="password" required>
+                <i class="fa-solid fa-lock"></i>
+            </section>
+            <button formaction="" formmethod="post" type="submit" id="loginbtn">Login</button>
         </form>
     </section>
 </body>
