@@ -1,108 +1,154 @@
 /*Font Import*/
 @import url('https://fonts.googleapis.com/css2?family=Heebo:wght@100;400&family=Koulen&display=swap');
 
-*{
-    text-decoration: none;
-    font-family: 'Heebo', sans-serif;
+header a:last-child{
+    grid-column-start: 5;
+    grid-column-end: 6;
+    margin-left: 50%;
 }
 
-body{
-    display: grid; 
-    grid-template-columns: auto 1fr;
-    grid-template-rows: auto 1fr auto;
-    margin: 0px;
-    min-height: 100vh;
-}
-
-
-header{
-    display: grid;
-    grid-column: 1/3;
-    grid-row-start: 1;
-    grid-row-end: 2;
-    grid-template-columns: 1fr 2fr 1fr 1fr 1fr;
-    grid-template-rows: auto auto auto auto; 
-}
-
-header{
-    background-color: black;
-    padding: 2em; 
-}
-
-header a{
-    color: white; 
-}
-
-header a:first-child{
-    grid-column-start: 1;
-    grid-column-end: 2;
-    grid-row-start: 1;
-    grid-row-end: 2;
-}
-
-footer{
-    list-style-type: none;
-    grid-column-start: 1;
-    grid-column-end: 3;
-    grid-row-start: 3;
-    grid-row-end: 4; 
-    background-color: black;
-    position: sticky; 
-    top: 100%; 
-}
-
-footer ul{
-    display: flex; 
-    flex-direction: row; 
-    justify-content: space-around;
-    flex-wrap: nowrap;
-}
-
-footer ul li{
-    list-style: none;
-    width: auto;
-}
-
-footer ul li{
-    color: white; 
+#addbtndish a{
+    grid-row: 2/3;
     float: right;
-}
-
-footer ul li i{
-    margin-left: 0.5em;
-}
-
-footer ul li a{
-    margin: 1em;
-}
-
-footer ul li a{
+    margin: 2em;
+    /* Code for setting border arround anchor*/
+    border-radius: 5px;
+    background-color: rgb(0, 0, 0);
+    width: 160px;
+    height: 30px;
+    padding: 5px;
+    text-align: center;
     color: white;
 }
 
+#addbtndish a:hover{
+    background-color: rgb(0, 255, 39);
+}
 
 .profileEditing{
-    margin: 0 auto;
+    margin-left: 5em;
+    margin-top: 1em;
+    display: flex;
+    flex-direction: column;
 }
 
-
-#changes { 
-    /*color: white;*/
-    display: inline;
-    padding-left: 0em;
-    font-weight: 10000;
-    margin-left: 100%;
+.profileEditing p{
+    margin-top: 30px;
 }
 
-header a:nth-child(2){
-    grid-column-start: 4;
-    grid-column-end: 5;
-    grid-row-start: 1;
-    grid-row-end: 2; 
-    margin-left: 180%; 
-    /* Code for setting border arround login anchor*/
-    border-radius: 15px;
-    width: 60px;
-    height: 25px;
+aside{
+    grid-row: 2/3; 
+    grid-column: 1/2;
+    display: flex;
+    flex-direction: column;
 }
 
+aside a{
+    margin: 2em;
+    color: black;
+}
+
+aside a:hover{
+    /* Code for setting border arround anchor*/
+    border-radius: 5px;
+    background-color: rgba(178, 178, 178, 0.41);
+    width: 130px;
+    height: 30px;
+    text-align: center;
+    color: black;
+}
+
+a{
+    color: black;
+}
+
+#profilepicture{
+    margin-top: 5px;
+    width: 200px;
+    height: 200px;
+    background-color: #000;
+    border-radius: 50%/50%;
+}
+
+.editicon {
+    margin-left: 0.5em;
+}
+
+.userRestaurants{
+    padding: 0.5em;
+    display: flex;
+    flex-direction: column;
+}
+
+.userRestaurants article{
+    display: grid;
+    border-radius: 10px;
+    background-color: rgba(178, 178, 178, 0.7);
+    margin: 2em;
+    grid-template-columns: auto auto auto auto;
+    grid-template-rows: auto auto;
+    justify-items: center;
+    align-items: center;
+}
+
+.userRestaurants article:hover{
+    border: 3px solid black;
+}
+
+#restaurantprofilepicture{
+    margin-left: 1em;
+    margin-top: 1em;
+    margin-bottom: 1em;
+    width: 150px;
+    height: 150px;
+    background-color: #000;
+    border-radius: 50%/50%;
+}
+
+#editrestaurantprofilepic{
+    grid-column: 1/2;
+    grid-row: 2/3;
+}
+
+#restaurantname, #dishname{
+    grid-column: 2/3;
+    grid-row: 1/2;
+}
+
+#restaurantaddr, #dishprice
+
+#restaurantcategory, #dishcategory{
+    grid-column: 4/5;
+    grid-row: 1/2;
+}
+
+#editrestaurantinfo, #removeplate{
+    grid-column: 4/5;
+    grid-row: 2/3;
+    margin-left: auto;
+    margin-right: 2em;
+}
+
+#editrestaurantinfo a, #removeplate a{
+    /* Code for setting border arround anchor*/
+    border-radius: 5px;
+    background-color: rgb(255, 255, 255);
+    width: 160px;
+    height: 30px;
+    padding: 5px;
+    text-align: center;
+    color: black;
+}
+
+#editrestaurantinfo a:hover, #removeplate a:hover{
+    background-color: rgb(0, 0, 0);
+    color: white;
+}
+
+#removeplate a:hover{
+    background-color: rgb(241, 54, 54);
+}
+
+article p > a:hover{
+    color: white;
+}

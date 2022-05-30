@@ -2,6 +2,7 @@
 <html lang="en">
 
 <head>
+        <link rel="stylesheet" href="style/style.css">
         <link rel="stylesheet" href="style/PEstyle.css">
         <meta charset="UTF-8">
         <title>Ready2Eat</title>
@@ -12,28 +13,23 @@
     <body>
         <header>
             <a href="index.html">Ready2Eat</a>
-            <a href="profile.html">Profile</a> 
+            <a href="profileEdit.html">Profile</a>
         </header>
         <section class="profileEditing">
-            <ul id = "changes">
-                <li>
-                    <p>Change username:</p>
-                    <input id="username" type="text" name= "change username" placeholder="Insert new username">
-                </li>
-                <li>
-                    <p>Change password:</p>
-                    <input id="password" type="password" name= "change password" placeholder="Insert new password">
-                </li>
-                <li>
-                    <p>Change address:</p>
-                    <input id="address" type="text" name= "change address" placeholder="Insert new address">
-                </li>
-                <li>   
-                    <p>Change phonenumber:</p>
-                    <input id="phone number" type="text" name= "change phonenumber" placeholder="Insert new phonenumber">
-               </li>
-            </ul>    
+            <img id="profilepicture" src="https://i.picsum.photos/id/218/200/300.jpg?hmac=S2tW-K1x-k9tZ7xyNVAdnie_NW9LJEby6GBgYpL7kfo" alt="Profile Picture">
+            <p><a id="profileimage" href="">Edit Profile Image <i class="fa-solid fa-pen-to-square editicon"></i></a></p>
+            <p>Name: FirstName LastName</p>
+            <p id="username">Username: UsernameTemplate <a href=""><i class="fa-solid fa-pen-to-square editicon"></i></a></p>
+            <p><a href="">Change Password<i class="fa-solid fa-pen-to-square editicon"></i></a></p>
+            <p id="address">Address: 32932857859412 <a href=""><i class="fa-solid fa-pen-to-square editicon"></i></a></p>
+            <p id="phone-number">Phone Number: 938283953 <a href=""><i class="fa-solid fa-pen-to-square editicon"></i></a></p>
         </section>
+
+        <aside>
+            <a href="profileEdit.html">Edit Profile</a>
+            <a href="restaurantsEditInfo.html">My Restaurants</a>
+        </aside>
+
         <footer>
             <ul>
                 <li>Copyright &#169 Ready2Eat</li>
