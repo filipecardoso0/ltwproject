@@ -10,7 +10,6 @@
 
     if($user){
     $_SESSION['id'] = $user->id;
-        header('Location: profileEdit.html');
         echo('Sessao inciada com sucesso');
     }
     else{

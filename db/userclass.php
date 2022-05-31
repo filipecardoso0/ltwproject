@@ -23,7 +23,7 @@
             $stmt->execute(array($username, hash('sha256', $password)));
 
             if($user = $stmt->fetch())
-                return new User($user['IdUser'], $user['Name'], $user['Username'], $user['Address'], $user['Phonenumber']);
+                return new User((int)$user['IdUser'], $user['Name'], $user['Username'], $user['Address'], (int)$user['Phonenumber']);
             else
                 return null;
         }
