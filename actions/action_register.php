@@ -6,17 +6,23 @@
 
     $session = new Session();
 
-    if($session->isLoggedIn())
-        $session->logout();
-
     $db = getDatabaseConnection();
 
     $result = User::createNewUser($db, $_POST['username'], $_POST['name'], $_POST['address'], $_POST['phonenumber'], $_POST['password'], $_POST['confirmpassword'], $_POST['registertype']);
 
-    if($result == false){
-        echo "Ocorreu um erro ao efetuar o registro";
+    if(isset($result['ERROR'])){
+        $session->addMessage('error', $result['ERROR']);
     }
-    else{
-        echo "Registro efetuado com sucesso";
+
+    //No error occurred
+    if($result == null){
+        $user = User::getUserWithPassword($db, $_POST['username'], $_POST['password']);
+
+        //Starts session variables
+        $session->setId($user->id);
+        $session->setName($_POST['name']);
+        $session->addMessage('success', 'Account created successfully!');
     }
+
+    header('Location: ' . $_SERVER['HTTP_REFERER']);
 ?>

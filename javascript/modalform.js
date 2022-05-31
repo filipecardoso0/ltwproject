@@ -1,7 +1,7 @@
 let count = 0
 
 function showLoginForm(){
-    const loginbtn = document.querySelector("header a:nth-child(3)")
+    const loginbtn = document.querySelector("#login")
     const bg = document.querySelector("#forms")
 
     //Only opens modal if there is no modal open
@@ -13,7 +13,7 @@ function showLoginForm(){
 }
 
 function showRegisterForm(){
-    const registerbtn = document.querySelector("header a:nth-child(4)")
+    const registerbtn = document.querySelector("#register")
     const bg = document.querySelector("#forms")
 
     registerbtn.addEventListener("click", () => {

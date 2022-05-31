@@ -28,16 +28,6 @@
                 return null;
         }
 
-        static function getUserId(PDO $db, string $username, string $password){
-            $stmt = $db->prepare('SELECT IdUser FROM User Where Username = ? AND Password = ?');
-            $stmt->execute(array($username, $password));
-
-            if($userid = $stmt->fetch())
-                return $userid;
-            else
-                return null;
-        }
-
         static function createUser(PDO $db, string $username, string $name, string $address, int $phonenumber, string $password){
             $stmt = $db->prepare('Insert into User (Name, Password, Username, Address, Phonenumber) VALUES (?, ?, ?, ?, ?)');
             $stmt->execute(array($name, $password,  $username, $address, $phonenumber));
@@ -57,7 +47,7 @@
 
             //Password != confirmpassword so we won't register the users
             if($password != $confirmpassword)
-                return false;
+                return array("ERROR " => "Passwords do not match.");
 
             //Asserts if the username already exists in the current database as well as the phonenumber
             $fetchusername = $db->prepare('Select * From User Where Username = ?');
@@ -66,8 +56,10 @@
             $fetchphonenumber = $db->prepare('Select * from User Where Phonenumber = ?');
             $fetchphonenumber->execute(array($phonenumber));
 
-            if(($fetchusername->fetch() && $fetchphonenumber->fetch()) != NULL)
-                return false;
+            if($fetchusername->fetch() != NULL)
+                return array("ERROR" => "Username Already Taken.");
+            else if($fetchphonenumber->fetch() != NULL)
+                return array ("ERROR" => "Phone Number Already Taken.");
 
             //Encrypts the password
             $newpassword = hash('sha256', $password);
@@ -76,22 +68,21 @@
             self::createUser($db, $username, $name, $address, $phonenumber, $newpassword);
 
             //gets the user id after insertion in the user table
-            $userid = (int) self::getUserId($db, $username, $newpassword);
-
+            $user = self::getUserWithPassword($db, $username, $password);
 
             //Verifies the account type which the user wants to create
             if($accountype === "owner"){
-                self::createAcctypeOwner($db, $userid);
+                self::createAcctypeOwner($db, $user->id);
             }
             else if($accountype === "customer"){
-                self::createAcctypeCustomer($db, $userid);
+                self::createAcctypeCustomer($db, $user->id);
             }
             //In case the user type happens to be invalid we will cancel the insertion into the database
             else{
-                return false;
+                return array("ERROR" => "Oops! Something went wrong.");
             }
 
-            return true;
+            return null;
         }
 
     }
