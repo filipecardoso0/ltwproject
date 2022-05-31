@@ -2,32 +2,25 @@ let count = 0
 
 function showLoginForm(){
     const loginbtn = document.querySelector("header a:nth-child(3)")
-
     const bg = document.querySelector("#forms")
 
-        
     //Only opens modal if there is no modal open
     loginbtn.addEventListener("click", () => {
-        if(!bg.classList.contains("modalbody")){
         const loginform = document.querySelector("#forms section:first-child")
         loginform.classList.add("show")
         addBackgroundColour()
-        }
     })
 }
 
 function showRegisterForm(){
     const registerbtn = document.querySelector("header a:nth-child(4)")
-
     const bg = document.querySelector("#forms")
 
     registerbtn.addEventListener("click", () => {
         //Only opens modal if there is no modal open
-        if(!bg.classList.contains("modalbody")){
-            const registerform = document.querySelector("#forms section:last-child")
-            registerform.classList.add("show")
-            addBackgroundColour()
-        }
+        const registerform = document.querySelector("#forms section:last-child")
+        registerform.classList.add("show")
+        addBackgroundColour()
     })
 }
 

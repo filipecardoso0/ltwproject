@@ -43,10 +43,10 @@ CREATE TABLE FavouriteRestaurant(
 CREATE TABLE Orders(
     IdOrders INTEGER, 
     IdRestaurant INTEGER, 
-    IdUser INTEGER, 
+    IdCustomer INTEGER,
     IdDishes INTEGER, 
     CONSTRAINT IdRestaurantForeignKey FOREIGN KEY (IdRestaurant) REFERENCES Restaurant, 
-    CONSTRAINT IdUserForeignKey FOREIGN KEY (IdUser) REFERENCES User, 
+    CONSTRAINT IdUserForeignKey FOREIGN KEY (IdCustomer) REFERENCES Customer,
     CONSTRAINT IdDishesForeignKey FOREIGN KEY (IdDishes) REFERENCES Dishes, 
     CONSTRAINT IdOrdersPrimaryKeyDefinition PRIMARY KEY (IdOrders)
 ); 
@@ -54,9 +54,7 @@ CREATE TABLE Orders(
 
 CREATE TABLE Customer(
     IdUser INTEGER,
-    IdOrders INTEGER,
-    CONSTRAINT IdOrdersForeignKey FOREIGN KEY (IdOrders) REFERENCES Orders, 
-    CONSTRAINT IdUserForeignKey FOREIGN KEY (IdUser) REFERENCES User, 
+    CONSTRAINT IdUserForeignKey FOREIGN KEY (IdUser) REFERENCES User,
     CONSTRAINT CustomerPrimaryKeyDefinition PRIMARY KEY(IdUser)
 );
 
@@ -64,20 +62,20 @@ CREATE TABLE Customer(
 CREATE TABLE Restaurant(
     IdRestaurant INTEGER PRIMARY KEY,
     IdOrders INTEGER, 
-    IdDishes INTEGER, 
+    IdDishes INTEGER,
+    IdOwner INTEGER,
     name text not null,
     address text not null,
     avg_review INTEGER,
     CONSTRAINT IdOrdersForeignKey FOREIGN KEY (IdOrders) REFERENCES Orders,
     CONSTRAINT IdDishesForeignKey FOREIGN KEY (IdDishes) REFERENCES Dishes,
+    CONSTRAINT IdRestaurantOwnerForeignKey FOREIGN KEY (IdOwner) REFERENCES Owner,
     check(avg_review >= 0 & avg_review <= 5)
 ); 
 
 CREATE TABLE Owner(
     IdUser INTEGER, 
-    IdRestaurant INTEGER, 
     CONSTRAINT IdUserForeignKey FOREIGN KEY (IdUser) REFERENCES User,
-    CONSTRAINT IdRestaurantForeignKey FOREIGN KEY (IdRestaurant) REFERENCES Restaurant,
     CONSTRAINT CustomerPrimaryKeyDefinition PRIMARY KEY(IdUser)
 );
 

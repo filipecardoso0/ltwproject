@@ -72,12 +72,12 @@ input[type="password"]:focus, input[type="password"]:hover{
     position: relative;
 }
 
-#password, #address, #phonenumber, #confirmpassword{
+#password, #address, #phonenumber, #confirmpassword, #name{
     margin-top: 2em; 
     position: relative;
 }
 
-#username i, #password i, #address i, #phonenumber i, #confirmpassword i{
+#username i, #password i, #address i, #phonenumber i, #confirmpassword i, #name i{
     position: absolute;
     left: 15px;
     bottom: 8px;
