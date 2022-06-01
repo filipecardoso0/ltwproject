@@ -1,6 +1,8 @@
 <?php
 
-    Class Dishes{
+    declare(strict_types = 1);
+
+    class Dishes{
         public int $id;
         public string $name;
         public int $price;
