@@ -28,6 +28,17 @@
                 return null;
         }
 
+        static function getUserWithId(PDO $db, int $userid) :?User{
+            $stmt = $db->prepare('SELECT Name, Username, Address, Phonenumber FROM User Where IdUser = ?');
+            $stmt->execute((array($userid)));
+
+            if($user = $stmt->fetch()){
+                return new User((int)$userid, $user['Name'], $user['Username'], $user['Address'], (int)$user['Phonenumber']);
+            }
+            else
+                return null;
+        }
+
         static function createUser(PDO $db, string $username, string $name, string $address, int $phonenumber, string $password){
             $stmt = $db->prepare('Insert into User (Name, Password, Username, Address, Phonenumber) VALUES (?, ?, ?, ?, ?)');
             $stmt->execute(array($name, $password,  $username, $address, $phonenumber));
@@ -41,6 +52,17 @@
         static function createAcctypeCustomer(PDO $db, int $userid){
             $stmt = $db->prepare('Insert into Customer (IdUser) VALUES (?)');
             $stmt->execute(array($userid));
+        }
+
+        static function getUserAccountType(PDO $db, int $userid) :?string{
+            $stmt = $db->prepare('SELECT * FROM Owner WHERE IdUser = ?');
+            $stmt->execute(array($userid));
+
+            if($stmt->fetch() != null){
+                return "owner";
+            }
+
+            return "customer";
         }
 
         static function createNewUser(PDO $db, string $username, string $name, string $address, int $phonenumber, string $password, string $confirmpassword, string $accountype){
