@@ -37,7 +37,7 @@
             $stmt->execute(array($idRestaurant, $idCustomer, $idDishes));
 
             if($idOrders = $stmt->fetch()){
-                return $id;
+                return $idOrders;
             }
             else{
                 return null;
