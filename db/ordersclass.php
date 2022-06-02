@@ -3,20 +3,20 @@
     declare(strict_types = 1);
 
     class Orders{
-        public int $id;
+        public int $idOrders;
         public int $idRestaurant;
         public int $idCustomer;
         public int $idDishes;
 
-        public function __construct(int $id, int $idRestaurant, int $idCustomer, int $idDishes){
-            $this->id=$id;
+        public function __construct(int $idOrders, int $idRestaurant, int $idCustomer, int $idDishes){
+            $this->id=$idOrders;
             $this->idRestaurant=$idRestaurant;
             $this->idCustomer=$idCustomer;
             $this->idDishes=$idDishes;
         }
 
         static function createOrder(PDO $db, int $idRestaurant, int $idCustomer, int $idDishes){
-            $stmt = $db->prepare('Insert int Orders (idRestaurant, idCostumer, idDishes) VALUES(?,?,?)');
+            $stmt = $db->prepare('Insert into Orders (idRestaurant, idCostumer, idDishes) VALUES(?,?,?)');
             $stmt->execute(array($idRestaurant, $idCustomer, $idDishes));
         }
 
@@ -24,8 +24,8 @@
             $stmt = $db->prepare('select restaurant.name from restaurant join orders on restaurant.idRestaurant = ?;');
             $stmt->execute(array($idRestaurant));
 
-            if($restaurantName = $stmt->fetch()){
-                return $restaurantName;
+            if($resName = $stmt->fetch()){
+                return $name;
             }
             else{
                 return null;
@@ -36,8 +36,8 @@
             $stmt = $db->prepare('Select idOrders from orders where idRestaurant = ? and idCustomer = ? and idDishes = ?');
             $stmt->execute(array($idRestaurant, $idCustomer, $idDishes));
 
-            if($ordId = $stmt->fetch()){
-                return $ordId;
+            if($idOrders = $stmt->fetch()){
+                return $id;
             }
             else{
                 return null;

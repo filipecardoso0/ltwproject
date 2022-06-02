@@ -3,7 +3,7 @@
     declare(strict_types = 1);
 
     class Dishes{
-        public int $id;
+        public int $idDishes;
         public string $name;
         public int $price;
         public string $category;
@@ -11,9 +11,9 @@
         public int $idRestaurant;
 
 
-        public function __construct(int $id, string $name, int $price, string $category, string $photo, int $idRestaurant){
-            $this->id = $id;
-            $this->name = $id;
+        public function __construct(int $idDishes, string $name, int $price, string $category, string $photo, int $idRestaurant){
+            $this->idDishes = $idDishes;
+            $this->name = $name;
             $this->price = $price;
             $this->category = $category;
             $this->photo = $photo;
@@ -24,20 +24,20 @@
             $stmt = $db->prepare('SELECT IdDishes from Dishes where Name = ? AND idRestaurant = ?');
             $stmt->execute(array($name, $idRestaurant));
 
-            if($name = $stmt->fetch()){
-                return $dishID;
+            if($idDishes = $stmt->fetch()){
+                return $idDishes;
             }
             else{
                 return null;
             }
         }
 
-        static function getDishName(PDO $db, int $id){
+        static function getDishName(PDO $db, int $idDishes){
             $stmt = $db->prepare('SELECT Name from Dishes where idDishes = ?')
-            $stmt->execute(array($id));
+            $stmt->execute(array($idDishes));
 
-            if($dishName = $stmt->fetch()){
-                return $dishName;
+            if($name = $stmt->fetch()){
+                return $name;
             }
             else{
                 return null;
