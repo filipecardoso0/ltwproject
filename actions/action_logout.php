@@ -7,5 +7,6 @@
     if($session->isLoggedIn())
         $session->logout();
 
-    header('Location: ' . $_SERVER['HTTP_REFERER']);
+    //Goes back to main page
+    header('Location: ../index.php');
 ?>

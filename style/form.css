@@ -20,8 +20,8 @@
     background-color: rgba(255, 255, 255, 0.8);
     padding-left: 100px; 
     padding-right: 100px; 
-    padding-top: 0px;
-    padding-bottom: 0px;
+    padding-top: 30px;
+    padding-bottom: 30px;
     transform: translate(-50%, -50%); 
     display: flex;
     flex-direction: column;
@@ -104,7 +104,8 @@ input[type="password"]:focus + i, input[type="password"]:hover + i, .textinput:f
     right: 40px;
     top: 20px;
     font-size: 30px;
-    font-weight: bold; 
+    font-weight: bold;
+    margin-bottom: 1em;
 }
 
 #loginregister form span:hover{

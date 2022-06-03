@@ -1,0 +1,129 @@
+/*Font Import*/
+@import url('https://fonts.googleapis.com/css2?family=Heebo:wght@100;400&family=Koulen&display=swap');
+
+*{
+    text-decoration: none;
+    font-family: 'Heebo', sans-serif;
+}
+
+
+.editinfoform{
+    position: fixed;
+    left: 50%;
+    top: 50%;
+}
+
+.editinfoform form{
+    width: 50%;
+    border-radius: 50px;
+    border: 2px solid white;
+    background-color: rgba(255, 255, 255, 0.7);
+    padding-left: 100px;
+    padding-right: 100px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+}
+
+.editinfoform form h1{
+    text-align: center;
+}
+
+.textinput, input[type="password"]{
+    border: 5px solid white;
+    border-radius: 5px;
+    height: 50%;
+    width: 100%;
+    display: inline-block;
+    box-sizing: border-box;
+    padding-left: 35px;
+    outline: none;
+    font-size: 15px;
+}
+
+.textinput:focus, .textinput:hover{
+    background-color: rgba(48, 48, 48, 0.1);
+    border-color: rgba(48, 48, 48, 0.7);
+}
+
+.editinfoform section{
+    margin: 1em;
+    position: relative;
+}
+
+.editinfoform section i{
+    position: absolute;
+    left: 15px;
+    bottom: 8px;
+    padding-right: 10px;
+}
+
+.editinfoform form span{
+    position: absolute;
+    color: black;
+    right: 40px;
+    top: 20px;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.editinfoform form span:hover{
+    color: red;
+}
+
+.editinfoform a{
+    color: white;
+    text-align: center;
+    margin: 1em;
+    border: 1px solid black;
+    background-color: black;
+    border-radius: 5px;
+}
+
+#confirmbtn{
+    color: white;
+    text-align: center;
+    margin: 1em;
+    border: 1px solid black;
+    background-color: black;
+    border-radius: 5px;
+}
+
+#confirmbtn:hover{
+    background-color: green;
+    border-color: green;
+}
+
+#cancelbtn:hover{
+    background-color: red;
+    border-color: red;
+}
+
+.editinfoform.disabled{
+    display: none;
+}
+
+.editinfoform.disabled.show{
+    display: block;
+}
+
+#editbtn{
+    margin-top: 2em;
+    margin-bottom: 2em;
+    border-radius: 5px;
+    border: 1px solid black;
+    background-color: rgba(0, 0, 0, 1);
+    font-weight: bold;
+}
+
+#editbtn:hover{
+    border-color: white;
+    background-color: white;
+    color:black;
+}
+
+#userid{
+    display: none;
+}
