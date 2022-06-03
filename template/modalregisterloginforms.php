@@ -67,6 +67,7 @@
                 <button formaction="actions/action_register.php" formmethod="post" type="submit" id="loginbtn">Register</button>
             </form>
         </section>
+
     </span>
 
 <?php } ?>

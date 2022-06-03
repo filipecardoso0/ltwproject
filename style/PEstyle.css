@@ -50,8 +50,8 @@ aside a{
 
 aside a:hover{
     /* Code for setting border arround anchor*/
-    border-radius: 5px;
-    background-color: rgba(178, 178, 178, 0.41);
+    border-radius: 10px;
+    background-color: rgba(178, 178, 178, 0.68);
     width: 130px;
     height: 30px;
     text-align: center;
@@ -151,4 +151,9 @@ a{
 
 article p > a:hover{
     color: white;
+}
+
+#logout{
+    color: red;
+    margin-left: 5em;
 }

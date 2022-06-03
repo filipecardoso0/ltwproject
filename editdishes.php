@@ -4,7 +4,6 @@
     require_once('template/editdishestemplate.php');
 
     output_header_editprofile();
-
     output_footer();
 
 ?>

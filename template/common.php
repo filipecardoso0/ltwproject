@@ -13,7 +13,7 @@
         <title>Ready2Eat</title>
 
         <!-- JS -->
-        <script src="../javascript/modalform.js" defer></script>
+        <script src="../javascript/modalregloginform.js" defer></script>
 
         <!-- FONT AWESOME ICONS CDN -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -47,7 +47,7 @@
         <title>Ready2Eat</title>
 
         <!-- JS -->
-        <script src="../javascript/modalform.js" defer></script>
+        <script src="../javascript/modalregloginform.js" defer></script>
 
         <!-- FONT AWESOME ICONS CDN -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -78,10 +78,14 @@
     <head>
         <link rel="stylesheet" href="style/style.css">
         <link rel="stylesheet" href="style/PEstyle.css">
+        <link rel="stylesheet" href="../style/editinfoform.css">
         <meta charset="UTF-8">
         <title>Ready2Eat</title>
-        <script src="https://kit.fontawesome.com/fdc97d0758.js" crossorigin="anonymous"></script>
 
+        <!-- JS -->
+        <script src="../javascript/modaleditform.js" defer></script>
+
+        <!-- FONT AWESOME ICONS CDN -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     </head>
     <body>
