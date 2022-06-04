@@ -2,6 +2,8 @@
 
     declare(strict_types=1);
 
+    require_once(__DIR__ . '/../utils/session.php');
+
     function output_header_notloggedin(){ ?>
 
     <!DOCTYPE html>
@@ -65,7 +67,6 @@
         </section>
     </header>
 
-
     <?php    } ?>
 
     <?php
@@ -119,3 +120,19 @@
             </ul>
         </footer>
 <?php } ?>
+
+<?php function output_message(Session $session){ ?>
+
+    <section id="messages">
+
+    <?php foreach($session->getMessages() as $message){ ?>
+
+        <article class="<?=$message['type']?>">
+            <p><?=$message['text']?></p>
+        </article>
+
+    <?php } ?>
+
+    </section>
+
+<?php }?>

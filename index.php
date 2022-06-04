@@ -14,7 +14,8 @@
     else
         //Draws header not logged in
         output_header_notloggedin();
-    //
+    //Displays message
+    output_message($session);
     //Draw main page content
     output_main_content();
     //Draws footer

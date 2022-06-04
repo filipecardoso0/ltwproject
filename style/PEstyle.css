@@ -7,7 +7,7 @@ header a:last-child{
     margin-left: 50%;
 }
 
-#addbtndish a{
+#addbtndish a, #addbtnrestaurant a{
     grid-row: 2/3;
     float: right;
     margin: 2em;
@@ -21,8 +21,8 @@ header a:last-child{
     color: white;
 }
 
-#addbtndish a:hover{
-    background-color: rgb(0, 255, 39);
+#addbtndish a:hover, #addbtnrestaurant a:hover{
+    background-color: rgb(30, 145, 55);
 }
 
 .profileEditing{
@@ -37,7 +37,7 @@ header a:last-child{
 }
 
 aside{
-    grid-row: 2/3; 
+    grid-row: 2/5;
     grid-column: 1/2;
     display: flex;
     flex-direction: column;
@@ -78,6 +78,7 @@ a{
     padding: 0.5em;
     display: flex;
     flex-direction: column;
+    grid-row: 3/4;
 }
 
 .userRestaurants article{
@@ -122,14 +123,28 @@ a{
     grid-row: 1/2;
 }
 
-#editrestaurantinfo, #removeplate{
+#removerestbtn{
     grid-column: 4/5;
     grid-row: 2/3;
     margin-left: auto;
     margin-right: 2em;
 }
 
-#editrestaurantinfo a, #removeplate a{
+#editrestaurantinfo{
+    grid-column: 3/4;
+    grid-row: 2/3;
+    margin-left: auto;
+    margin-right: 2em;
+}
+
+#removeplate{
+    grid-column: 4/5;
+    grid-row: 2/3;
+    margin-left: auto;
+    margin-right: 2em;
+}
+
+#editrestaurantinfo a, #removeplate a, #removerestbtn a{
     /* Code for setting border arround anchor*/
     border-radius: 5px;
     background-color: rgb(255, 255, 255);
@@ -140,12 +155,12 @@ a{
     color: black;
 }
 
-#editrestaurantinfo a:hover, #removeplate a:hover{
+#editrestaurantinfo a:hover{
     background-color: rgb(0, 0, 0);
     color: white;
 }
 
-#removeplate a:hover{
+#removeplate a:hover, #removerestbtn a:hover{
     background-color: rgb(241, 54, 54);
 }
 
