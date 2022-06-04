@@ -14,7 +14,7 @@
                 <h1>Change Username</h1>
                 <section>
                     <label>Username:</label>
-                    <input type="text" name="username" class="textinput" value="<?=$user->name?>" required>
+                    <input type="text" name="username" class="textinput" value="<?=$user->username?>" required>
                     <i class="fa-solid fa-user-tie"></i>
                 </section>
                 <a href="#0" id="editbtn">Make Changes!</a>

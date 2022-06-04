@@ -16,7 +16,7 @@
         $session->addMessage('success', 'Login efetuado com sucesso');
     }
     else{
-        $session->addMessage('error', 'Wrong data provided');
+        $session->addMessage('error', 'ERROR: Wrong data provided');
     }
 
     header('Location: ' . $_SERVER['HTTP_REFERER']);

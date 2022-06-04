@@ -14,6 +14,8 @@
 
     if($user){
         output_header_editprofile();
+        //Displays message
+        output_message($session);
         output_profile_edit_content($user, $accountype);
         output_footer();
         output_edit_user_form($user);

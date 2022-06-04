@@ -50,7 +50,7 @@ class Session{
     }
 
     public function getMessages() {
-        return $_SESSION['messages'];
+        return $this->messages;
     }
 
     public function clearMessages() {

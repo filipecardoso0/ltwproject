@@ -22,7 +22,7 @@
             $session->addMessage('error', 'Username already taken');
         else{
             $stmt = $db->prepare("UPDATE User SET Username = ? WHERE IdUser = ?");
-            $edited = "Username Field";
+            $field = 'Username Field';
         }
     }
     else if($type === "password"){
@@ -30,11 +30,11 @@
         $value = hash('sha256', $value);
 
         $stmt = $db->prepare("UPDATE User SET Password = ? WHERE IdUser = ?");
-        $field = "Password Field";
+        $field = 'Password Field ';
     }
     else if($type === "address"){
         $stmt = $db->prepare("UPDATE User SET Address = ? WHERE IdUser = ?");
-        $field = "Address Field";
+        $field = 'Address Field ';
     }
     else if($type === "phonenumber"){
         //We have to verify first if phonenumber already exists
@@ -42,18 +42,18 @@
         $ver->execute(array($value));
 
         if($ver->fetch() != null)
-            $session->addMessage('error', "Phone Number already exists");
+            $session->addMessage('error', 'Phone Number already exists');
         else{
             $stmt = $db->prepare("UPDATE User SET Phonenumber = ? WHERE IdUser = ?");
-            $field = "Phone Number Field";
+            $field = 'Phone Number Field ';
         }
     }
 
     if($stmt->execute(array($value, $id))){
-        $session->addMessage('success', $field . "edited succesfully");
+        $session->addMessage('success', $field . 'edited succesfully');
     }
     else{
-        $session->addMessage('error', "Something went wrong!");
+        $session->addMessage('error', 'ERROR: Something went wrong!');
     }
 
 ?>
