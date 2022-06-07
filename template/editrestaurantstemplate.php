@@ -20,8 +20,6 @@
             foreach($userRestaurants as $restaurant) {
                 //Gets restaurant categoryTitle
                 $category = Category::getCategoryWithId($db, (int)$restaurant['IdCategory']);
-                //Gets restaurant Profile Image
-                $profileimage = Restaurant::getRestaurantImage($db, (int)$restaurant['IdRestaurant']);
 
                 //Only outputs restaurant if it belongs to the user
                 if((int)$session->getId() === (int)$restaurant['IdOwner']) { ?>
@@ -30,7 +28,7 @@
                 <!-- Restaurant ID -->
                 <input type="text" style="display: none" value="<?=$restaurant['IdRestaurant']?>">
                 <!-- Restaurant INFO -->
-                <img id="restaurantprofilepicture" src="../images/originals/restaurant_<?=$profileimage['IdImage']?>.jpg" alt = "restaurant photo">
+                <img id="restaurantprofilepicture" src="../images/originals/restaurant_<?=$restaurant['IdRestaurant']?>.jpg" alt = "restaurant photo">
                 <p id="editrestaurantprofilepic"><a href="">Edit Restaurant Profile Picture <i class="fa-solid fa-pen-to-square editicon"></i></a></p>
                 <p id="restaurantname"> <a href="">Nome: <?=$restaurant['name']?> <i class="fa-solid fa-pen-to-square editicon"></i></a></p>
                 <p id="restaurantaddr"> <a href="">Address: <?=$restaurant['address']?> <i class="fa-solid fa-pen-to-square editicon"></i></a></p>

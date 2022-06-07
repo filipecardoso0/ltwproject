@@ -64,6 +64,13 @@
             }
         }
 
+        static function getAllRestaurants(PDO $db){
+            $stmt = $db->prepare('Select * From Restaurant');
+            $stmt->execute();
+
+            return $stmt->fetchAll();
+        }
+
 
         static function getRestaurantOwner(PDO $db, int $idOwner){
             $stmt = $db->prepare('select restaurant.name from restaurant, owner where owner.idUser = ?');

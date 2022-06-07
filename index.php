@@ -6,11 +6,13 @@
     require_once('utils/session.php');
     require_once('db/connectiondb.php');
     require_once('db/categoryclass.php');
+    require_once('db/restaurantclass.php');
 
     $db = getDatabaseConnection();
 
     $session = new Session();
     $categories = Category::getAllCategories($db);
+    $restaurants = Restaurant::getAllRestaurants($db);
 
     if($session->isLoggedIn())
         //Draws header logged in
@@ -21,7 +23,7 @@
     //Displays message
     output_message($session);
     //Draw main page content
-    output_main_content($db, $categories);
+    output_main_content($db, $restaurants, $categories);
     //Draws footer
     output_footer();
     //Draws modal login register form

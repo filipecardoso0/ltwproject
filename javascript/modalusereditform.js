@@ -23,12 +23,15 @@ function removeBackgroundBlur(){
 function hideform(){
     const activeform = document.querySelector(".show")
     activeform.classList.remove("show")
+    const activefield = document.querySelector(".active")
+    activefield.classList.remove("active")
 }
 
 function display_editusername(){
     const btn = document.querySelector("#username")
 
     btn.addEventListener("click", () => {
+        btn.classList.add("active")
         const form = document.getElementById("usernameform")
         form.classList.add("show")
         addBackgroundBlur()
@@ -39,6 +42,7 @@ function display_password(){
     const btn = document.querySelector("#password")
 
     btn.addEventListener("click", () => {
+        btn.classList.add("active")
         const form = document.getElementById("passwordform")
         form.classList.add("show")
         addBackgroundBlur()
@@ -49,6 +53,7 @@ function display_editaddress(){
     const btn = document.querySelector("#address")
 
     btn.addEventListener("click", () => {
+        btn.classList.add("active")
         const form = document.querySelector("#addressform")
         form.classList.add("show")
         addBackgroundBlur()
@@ -59,6 +64,7 @@ function display_phonenumber(){
     const btn = document.querySelector("#phonenumber")
 
     btn.addEventListener("click", () => {
+        btn.classList.add("active")
         const form = document.querySelector("#phonenumberform")
         form.classList.add("show")
         addBackgroundBlur()
@@ -117,6 +123,7 @@ function sendDatatoAction(){
     }
 
     const acceptbtn = document.getElementById("confirmbtn")
+    const activefield = document.querySelector(".active")
 
     acceptbtn.addEventListener("click", () => {
         //Initializes AJAX POST REQUEST TO action_editprofile.php page
@@ -126,8 +133,11 @@ function sendDatatoAction(){
         xml.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded')
         //Sends the post data
         xml.send(encodeForAjax({id: userid, type: typeofinput, value: valueofinput}))
-        //Refreshes page after making the desired changes
-        location.reload()
+        //Displays the new value
+        if(typeofinput != "password")
+            activefield.innerHTML = valueofinput
+        removeBackgroundBlur()
+        hideform()
     })
 }
 
