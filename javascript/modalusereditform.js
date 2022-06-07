@@ -122,7 +122,7 @@ function sendDatatoAction(){
         //Initializes AJAX POST REQUEST TO action_editprofile.php page
         const xml = new XMLHttpRequest();
         xml.open("post", "../actions/action_editprofile.php")
-        //This is necessary in POST method
+        //This is necessary in POST method  (encode type)
         xml.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded')
         //Sends the post data
         xml.send(encodeForAjax({id: userid, type: typeofinput, value: valueofinput}))

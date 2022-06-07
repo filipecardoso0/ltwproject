@@ -22,7 +22,7 @@
             $session->addMessage('error', 'Username already taken');
         else{
             $stmt = $db->prepare("UPDATE User SET Username = ? WHERE IdUser = ?");
-            $field = 'Username Field';
+            $field = 'Username Field ';
         }
     }
     else if($type === "password"){

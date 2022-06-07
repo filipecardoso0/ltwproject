@@ -1,6 +1,10 @@
-<?php 
+<?php
 
-function output_main_content(){ ?>
+    declare(strict_types=1);
+
+    require_once(__DIR__ . '/../db/categoryclass.php');
+
+function output_main_content(PDO $db, $categories){ ?>
 
 <h1>Top rated restaurants</h1>
     <section id="toprated">
@@ -68,11 +72,11 @@ function output_main_content(){ ?>
             </label> 
         </section>
         <p>Categorias</p>
-        <select name="categorias">
-            <option value="categoria1">Categoria 1</option>
-            <option value="categoria2" selected>Categoria 2</option>
-            <option value="categoria3">Categoria 3</option>
-            <option value="categoria4">Categoria 4</option>
+        <select>
+            <?php
+            foreach($categories as $category){ ?>
+                <option value="<?=$category['id']?>"><?=$category['CategoryTitle']?></option>
+            <?php } ?>
         </select >
     </aside>
 
