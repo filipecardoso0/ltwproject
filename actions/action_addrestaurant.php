@@ -21,7 +21,7 @@
             $session->addMessage('error', 'Something Went Wrong while creating the restaurant');
         }
         else{
-            if(insertImageIntoDatabase($db, "RestaurantImage", $restaurant->idRestaurant)){
+            if(insertImageIntoDatabase($db, "RestaurantImage", $restaurant->IdRestaurant)){
                 $session->addMessage('success', 'Restaurant created successfully!');
             }
             else{

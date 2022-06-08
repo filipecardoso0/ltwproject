@@ -3,17 +3,17 @@
     declare(strict_types = 1);
 
     class Restaurant{
-        public int $idRestaurant;
-        public int $idOwner;
-        public int $idCategory;
+        public int $IdRestaurant;
+        public int $IdOwner;
+        public int $IdCategory;
         public string $name;
         public string $address;
         public int $avg_review;
 
         public function __construct(int $idRestaurant, int $idOwner, int $idCategory, string $name, string $address, $avg_review){
-            $this->idRestaurant = $idRestaurant;
-            $this->idOwner = $idOwner;
-            $this->idCategory = $idCategory;
+            $this->IdRestaurant = $idRestaurant;
+            $this->IdOwner = $idOwner;
+            $this->IdCategory = $idCategory;
             $this->name = $name;
             $this->address = $address;
             $this->avg_review = $avg_review;
@@ -38,11 +38,42 @@
             return true;
         }
 
+        static function getAllRestaurants(PDO $db){
+            $stmt = $db->prepare('Select * From Restaurant');
+            $stmt->execute();
+
+            return $stmt->fetchAll();
+        }
+
         static function getAllUserRestaurants(PDO $db, int $userid){
             $stmt = $db->prepare('Select * From Restaurant Where IdOwner = ?');
             $stmt->execute(array($userid));
 
             return $stmt->fetchAll();
+        }
+
+        static function getRestaurantWithId(PDO $db, int $restaurantid) :?Restaurant{
+            $stmt = $db->prepare('Select IdOwner, IdCategory, name, address, avg_review FROM Restaurant WHERE IdRestaurant = ?');
+            $stmt->execute(array($restaurantid));
+
+            $restaurant = $stmt->fetch();
+
+            return new Restaurant((int)$restaurantid, (int)$restaurant['IdOwner'], (int)$restaurant['IdCategory'], $restaurant['name'], $restaurant['address'], (int)$restaurant['avg_review']);
+        }
+
+        static function updateRestaurantName(PDO $db,int $restaurantid,string $newvalue){
+            $stmt = $db->prepare("Update Restaurant Set name = ? Where IdRestaurant = ?");
+            $stmt->execute(array($newvalue, $restaurantid));
+        }
+
+        static function updateRestaurantAddress(PDO $db, int $restaurantid, string $newvalue){
+            $stmt = $db->prepare("Update Restaurant Set address = ? Where IdRestaurant = ?");
+            $stmt->execute(array($newvalue, $restaurantid));
+        }
+
+        static function updateRestaurantCategory(PDO $db, int $restaurantid, int $newvalue){
+            $stmt = $db->prepare("Update Restaurant Set IdCategory = ? Where IdRestaurant = ?");
+            $stmt->execute(array($newvalue, $restaurantid));
         }
 
         static function getRestaurantImage(PDO $db, int $idrestaurant){
@@ -63,14 +94,6 @@
                 return null;
             }
         }
-
-        static function getAllRestaurants(PDO $db){
-            $stmt = $db->prepare('Select * From Restaurant');
-            $stmt->execute();
-
-            return $stmt->fetchAll();
-        }
-
 
         static function getRestaurantOwner(PDO $db, int $idOwner){
             $stmt = $db->prepare('select restaurant.name from restaurant, owner where owner.idUser = ?');

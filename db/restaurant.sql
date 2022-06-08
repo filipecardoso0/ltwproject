@@ -1,7 +1,7 @@
 /* SQLITE "SETTINGS" */
-.mode columns
+PRAGMA foreign_keys = ON;
 .headers on
-PRAGMA foreign_keys=ON;
+.mode columns
 
 DROP TABLE IF EXISTS User; 
 DROP TABLE IF EXISTS Restaurant; 
@@ -13,6 +13,7 @@ DROP TABLE IF EXISTS Review;
 DROP TABLE IF EXISTS Dish;
 DROP TABLE IF EXISTS Customer; 
 DROP TABLE IF EXISTS Category;
+DROP TABLE IF EXISTS RestaurantImage;
 
 CREATE TABLE User(
     IdUser INTEGER, 
@@ -106,10 +107,8 @@ CREATE TABLE Category(
 );
 
 CREATE TABLE RestaurantImage(
-    IdImage Integer,
-    IdRestaurant Integer,
-    CONSTRAINT IdRestaurantForeignKey FOREIGN KEY (IdRestaurant) REFERENCES Restaurant ON DELETE CASCADE,
-    CONSTRAINT RestaurantImagePKDefinition PRIMARY KEY(IdImage)
+    IdImage Integer PRIMARY KEY,
+    IdRestaurant Integer REFERENCES Restaurant ON DELETE CASCADE
 );
 
 /* DEFAULT CATEGORY VALUES */

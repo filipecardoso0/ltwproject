@@ -13,7 +13,7 @@
 
         $stmt = $db->prepare("Delete from Restaurant Where IdRestaurant = ?");
         if($stmt->execute(array($restaurantid))){
-            //Removes The image with the IdRestaurant
+            //Removes The image with the IdRestaurant -> Had to use this statement, because for some weird reason ON DELETE CASCADE is not working
             $stmt2 = $db->prepare("Delete from RestaurantImage Where IdRestaurant = ?");
             $stmt2->execute((array($restaurantid)));
 

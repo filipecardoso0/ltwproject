@@ -29,10 +29,10 @@
                 <input type="text" style="display: none" value="<?=$restaurant['IdRestaurant']?>">
                 <!-- Restaurant INFO -->
                 <img id="restaurantprofilepicture" src="../images/originals/restaurant_<?=$restaurant['IdRestaurant']?>.jpg" alt = "restaurant photo">
-                <p id="editrestaurantprofilepic"><a href="">Edit Restaurant Profile Picture <i class="fa-solid fa-pen-to-square editicon"></i></a></p>
-                <p id="restaurantname"> <a href="">Nome: <?=$restaurant['name']?> <i class="fa-solid fa-pen-to-square editicon"></i></a></p>
-                <p id="restaurantaddr"> <a href="">Address: <?=$restaurant['address']?> <i class="fa-solid fa-pen-to-square editicon"></i></a></p>
-                <p id="restaurantcategory"> <a href="">Categoria: <?=$category->title?> <i class="fa-solid fa-pen-to-square editicon"></i></a></p>
+                <p id="editrestaurantprofilepic"><a href="#0">Edit Restaurant Profile Picture <i class="fa-solid fa-pen-to-square editicon"></i></a></p>
+                <p id="restaurantname">Nome: <a href="#0"> <?=$restaurant['name']?> </a><i class="fa-solid fa-pen-to-square editicon"></i></p>
+                <p id="restaurantaddress"> Address:  <a href="#0"> <?=$restaurant['address']?> </a><i class="fa-solid fa-pen-to-square editicon"></i></p>
+                <p id="restaurantcategory"> Categoria: <a href="#0"> <?=$category->title?> </a><i class="fa-solid fa-pen-to-square editicon"></i></p>
                 <p id="editrestaurantinfo"><a href="restaurantEditDishes.html">Editar Pratos</a></p>
             </article>
             <?php   }

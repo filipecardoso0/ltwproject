@@ -2,7 +2,7 @@
 
     require_once('template/common.php');
     require_once('template/editrestaurantstemplate.php');
-    require_once('template/editrestaurantformtemplate.php');
+    require_once('template/modaleditrestaurantformtemplate.php');
     require_once('template/modalconfirmform.php');
 
     require_once('utils/session.php');
@@ -21,7 +21,7 @@
         output_message($session);
         output_edit_restaurants_template($session, $db, $restaurants);
         output_footer();
-        output_add_restaurantform($categories);
+        output_edit_restaurantforms($categories);
         output_confirmchanges();
     }
     else{
