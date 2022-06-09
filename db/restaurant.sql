@@ -80,12 +80,12 @@ CREATE TABLE Owner(
 
 CREATE TABLE Dish(
     IdDish INTEGER PRIMARY KEY,
+    IdRestaurant INTEGER,
+    IdCategory INTEGER,
     Name TEXT not null,
     Price INTEGER not null,
-    Category TEXT not null,
-    IdImage INTEGER not null,
-    IdRestaurant INTEGER, 
-    CONSTRAINT IdRestaurantForeignKey FOREIGN KEY (IdRestaurant) REFERENCES Restaurant
+    CONSTRAINT IdRestaurantForeignKey FOREIGN KEY (IdRestaurant) REFERENCES Restaurant,
+    CONSTRAINT IdCategoryForeignKey FOREIGN KEY (IdCategory) REFERENCES DishCategory
 );
 
 
@@ -106,6 +106,12 @@ CREATE TABLE Category(
    CONSTRAINT IdCategoryPKDefinition PRIMARY KEY(IdCategory)
 );
 
+CREATE TABLE DishCategory(
+    IdCategory INTEGER,
+    CategoryTitle TEXT CONSTRAINT nn_CategoryTitle NOT NULL,
+    CONSTRAINT DishCategoryPKDefinition PRIMARY KEY (IdCategory)
+);
+
 CREATE TABLE RestaurantImage(
     IdImage Integer PRIMARY KEY,
     IdRestaurant Integer REFERENCES Restaurant ON DELETE CASCADE
@@ -116,3 +122,10 @@ INSERT INTO Category VALUES(1, "FastFood");
 INSERT INTO Category VALUES(2, "Portuguese");
 INSERT INTO Category VALUES(3, "Mediterranean cuisine");
 INSERT INTO Category VALUES(4, "Brazilian");
+
+/* DEFAULT DISHCATEGORY VALUES */
+INSERT INTO DishCategory VALUES(1, "Entrada");
+INSERT INTO DishCategory VALUES(2, "Prato Principal");
+INSERT INTO DishCategory VALUES(3, "Sobremesa");
+INSERT INTO DishCategory VALUES(4, "Aperitivo");
+INSERT INTO DishCategory VALUES(5, "Bebida");

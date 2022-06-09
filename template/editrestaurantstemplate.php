@@ -33,7 +33,7 @@
                 <p id="restaurantname">Nome: <a href="#0"> <?=$restaurant['name']?> </a><i class="fa-solid fa-pen-to-square editicon"></i></p>
                 <p id="restaurantaddress"> Address:  <a href="#0"> <?=$restaurant['address']?> </a><i class="fa-solid fa-pen-to-square editicon"></i></p>
                 <p id="restaurantcategory"> Categoria: <a href="#0"> <?=$category->title?> </a><i class="fa-solid fa-pen-to-square editicon"></i></p>
-                <p id="editrestaurantinfo"><a href="restaurantEditDishes.html">Editar Pratos</a></p>
+                <p id="editrestaurantinfo"><a href="../editdishes.php?id=<?=$restaurant['IdRestaurant']?>">Editar Pratos</a></p>
             </article>
             <?php   }
              }
