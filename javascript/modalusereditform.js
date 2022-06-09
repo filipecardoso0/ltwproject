@@ -6,25 +6,14 @@ function display_confirmchanges(){
 
     cancelbtn.addEventListener("click", ()=> {
         hideform()
+        unmarkactive()
         removeBackgroundBlur()
     })
-}
-
-function addBackgroundBlur(){
-    const bg = document.querySelector("#forms")
-    bg.classList.add("modalbody")
 }
 
 function removeBackgroundBlur(){
     const bg = document.querySelector("#forms")
     bg.classList.remove("modalbody")
-}
-
-function hideform(){
-    const activeform = document.querySelector(".show")
-    activeform.classList.remove("show")
-    const activefield = document.querySelector(".active")
-    activefield.classList.remove("active")
 }
 
 function display_editusername(){
@@ -34,7 +23,7 @@ function display_editusername(){
         btn.classList.add("active")
         const form = document.getElementById("usernameform")
         form.classList.add("show")
-        addBackgroundBlur()
+        addBackgroundBlur("forms")
     })
 }
 
@@ -45,7 +34,7 @@ function display_password(){
         btn.classList.add("active")
         const form = document.getElementById("passwordform")
         form.classList.add("show")
-        addBackgroundBlur()
+        addBackgroundBlur("forms")
     })
 }
 
@@ -56,7 +45,7 @@ function display_editaddress(){
         btn.classList.add("active")
         const form = document.querySelector("#addressform")
         form.classList.add("show")
-        addBackgroundBlur()
+        addBackgroundBlur("forms")
     })
 }
 
@@ -71,17 +60,6 @@ function display_phonenumber(){
     })
 }
 
-function close_form_onclick(){
-    const CancelBtns = document.querySelectorAll(".formclosebtn")
-
-    for(let CancelBtn of CancelBtns){
-        CancelBtn.addEventListener("click", () => {
-            removeBackgroundBlur()
-            hideform()
-        })
-    }
-}
-
 function makechanges(){
     const Confirmbtns = document.querySelectorAll("#forms section a")
 
@@ -89,6 +67,7 @@ function makechanges(){
         Confirmbtn.addEventListener("click", () => {
             sendDatatoAction()
             hideform()
+            unmarkactive()
             display_confirmchanges()
         })
     }
@@ -101,6 +80,7 @@ function backgroundclick(){
        if(event.target == bg){
            removeBackgroundBlur()
            hideform()
+           unmarkactive()
        }
     })
 }
@@ -118,6 +98,7 @@ function sendDatatoAction(){
         if(confirmpwd.value != valueofinput){
             alert("ERROR: Passwords do not match")
             hideform()
+            unmarkactive()
             removeBackgroundBlur()
         }
     }
@@ -138,20 +119,14 @@ function sendDatatoAction(){
             activefield.innerHTML = valueofinput
         removeBackgroundBlur()
         hideform()
+        unmarkactive()
     })
 }
 
-
-function encodeForAjax(data) {
-    return Object.keys(data).map(function(k){
-        return encodeURIComponent(k) + '=' + encodeURIComponent(data[k])
-    }).join('&')
-}
 
 display_editusername()
 display_password()
 display_phonenumber()
 display_editaddress()
-close_form_onclick()
 makechanges()
 backgroundclick()

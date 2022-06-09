@@ -3,19 +3,7 @@
 function confirmchanges_displayform(){
     const confirmchangesform = document.querySelector("#confirmchangesform .editinfoform")
     confirmchangesform.classList.add("show")
-    confirmchanges_showbg()
-}
-
-function confirmchanges_hideform(){
-    const activeform = document.querySelector(".show")
-    activeform.classList.remove("show")
-    const activeremovebtn = document.querySelector(".active")
-    activeremovebtn.classList.remove("active")
-}
-
-function confirmchanges_showbg(){
-    const bg = document.getElementById("confirmchangesform")
-    bg.classList.add("modalbody")
+    addBackgroundBlur("confirmchangesform")
 }
 
 function confirmchanges_backgroundclick(){
@@ -24,7 +12,7 @@ function confirmchanges_backgroundclick(){
     document.addEventListener("click", function(event){
         if(event.target == bg){
             removeBackgroundBlur()
-            confirmchanges_hideform()
+            hideform()
         }
     })
 }
@@ -34,7 +22,7 @@ function confirmchanges_cancelbtn(){
 
     cancelbtn.addEventListener("click", ()=> {
         removeBackgroundBlur()
-        confirmchanges_hideform()
+        hideform()
     })
 }
 
@@ -59,14 +47,13 @@ function confirmchanges_confirmbtn_removerestaurant(){
         document.querySelector("article.active").remove();
         //Closes form
         removeBackgroundBlur()
-        confirmchanges_hideform()
+        hideform()
     })
 }
 
 //Adds restaurant
 function confirmchanges_editrestaurantdata(){
     //First we get fields data
-    const confirmbtn = document.querySelector("#confirmbtn")
     const restaurantid = document.querySelector(".active input").value
 
     let field = null
@@ -92,6 +79,9 @@ function confirmchanges_editrestaurantdata(){
         value = select.selectedIndex+1
     }
 
+    const confirmbtn = document.getElementById("confirmbtn")
+
+    confirmbtn.removeEventListener("click", ()=>{})
     //Then, we wait for button click, and then send data to the server
     confirmbtn.addEventListener("click", ()=>{
         ///Initializes AJAX POST REQUEST TO action_editprofile.php page
@@ -113,6 +103,16 @@ function confirmchanges_editrestaurantdata(){
         }
         //Closes form and removes background blur
         removeBackgroundBlur()
-        confirmchanges_hideform()
+        hideform()
+        //Unmarks the active restaurant
+        unmarkactive()
+        //NOTE: MY CLICK EVENT LISTENER WAS BEING FIRED MORE THAN JUST ONCE FOR SOME
+        //WEIRD REASON. SO AFTER GOOGLING A LOT I FOUND THE JQUERY'S SOLUTION THAT WAS USING .ONE
+        //AFTER THAT I JUST FOUND THE VANILLA JS ALTERNATIVE AND NOW IT IS WORKING AS INTENDED
+    }, {
+        once: true,
     })
 }
+
+confirmchanges_backgroundclick()
+confirmchanges_cancelbtn()

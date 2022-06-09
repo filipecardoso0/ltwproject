@@ -3,7 +3,7 @@
     <!-- LOGIN  FORM -->
 
     <span id="forms">
-        <section class="disabled" id="loginregister">
+        <section class="disabled loginregister">
             <form>
                 <span><i class="fa-solid fa-circle-xmark formclosebtn"></i></span>
                 <h1>Login</h1>
@@ -17,13 +17,13 @@
                     <input type="password" name="password" required>
                     <i class="fa-solid fa-lock"></i>
                 </section>
-                <button formaction="actions/action_login.php" formmethod="post" type="submit" id="loginbtn">Login</button>
+                <button formaction="actions/action_login.php" formmethod="post" type="submit">Login</button>
             </form>
         </section>
 
 
         <!-- REGISTER FORM -->
-        <section class="disabled" id="loginregister">
+        <section class="disabled loginregister">
             <form>
                 <span><i class="fa-solid fa-circle-xmark formclosebtn"></i></span>
                 <h1>Register</h1>
@@ -64,7 +64,7 @@
                         <option value="owner" selected>Restaurant Owner</option>
                     </select >
                 </section>
-                <button formaction="actions/action_register.php" formmethod="post" type="submit" id="loginbtn">Register</button>
+                <button formaction="actions/action_register.php" formmethod="post" type="submit">Register</button>
             </form>
         </section>
 

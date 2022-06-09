@@ -2,12 +2,14 @@
 
 function removeBackgroundBlur(){
     const bg = document.querySelector(".modalbody")
-    bg.classList.remove("modalbody")
+    if(bg != null)
+        bg.classList.remove("modalbody")
 }
 
 function hideform(){
     const activeform = document.querySelector(".show")
-    activeform.classList.remove("show")
+    if(activeform != null)
+        activeform.classList.remove("show")
 }
 
 function closeform(){
@@ -26,6 +28,16 @@ function addBackgroundBlur(elementid){
     bg.classList.add("modalbody")
 }
 
-removeBackgroundBlur()
-hideform()
+function encodeForAjax(data) {
+    return Object.keys(data).map(function(k){
+        return encodeURIComponent(k) + '=' + encodeURIComponent(data[k])
+    }).join('&')
+}
+
+function unmarkactive(){
+    const active = document.querySelector(".active")
+    if(active != null)
+        active.classList.remove("active")
+}
+
 closeform()

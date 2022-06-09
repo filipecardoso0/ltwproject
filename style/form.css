@@ -7,13 +7,13 @@
 }
 
 
-#loginregister{
+.loginregister{
     position: fixed;
     left: 50%;
     top: 50%; 
 }
 
-#loginregister form{
+.loginregister form{
     width: 50%;
     border-radius: 50px;
     border: 2px solid white;
@@ -27,11 +27,11 @@
     flex-direction: column;
 }
 
-#loginregister form h1{
+.loginregister form h1{
     text-align: center;
 }
 
-#loginregister form button{
+.loginregister form button{
     margin-top: 2em;
     margin-bottom: 2em;
     border-radius: 5px;
@@ -40,7 +40,7 @@
     font-weight: bold;
 }
 
-#loginregister form button:hover{
+.loginregister form button:hover{
     border-color: white;
     color: white;
     width: 100%; 
@@ -98,7 +98,7 @@ input[type="password"]:focus + i, input[type="password"]:hover + i, .textinput:f
     color: white;
 }
 
-#loginregister form span{
+.loginregister form span{
     position: absolute;
     color: black;
     right: 40px;
@@ -108,7 +108,7 @@ input[type="password"]:focus + i, input[type="password"]:hover + i, .textinput:f
     margin-bottom: 1em;
 }
 
-#loginregister form span:hover{
+.loginregister form span:hover{
     color: red; 
 }
 
