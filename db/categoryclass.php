@@ -1,5 +1,7 @@
 <?php
 
+    //TODO REFACTOR FUNCTIONS RETURN -> RETURN OBJECT INSTEAD OF $STMT->FETCH(ALL)
+
     declare(strict_types=1);
 
     class Category
@@ -24,6 +26,13 @@
 
         static function getAllCategories(PDO $db){
             $stmt = $db->prepare("Select * FROM Category");
+            $stmt->execute();
+
+            return $stmt->fetchAll();
+        }
+
+        static function getAllDishCategories(PDO $db){
+            $stmt = $db->prepare('Select * From DishCategory');
             $stmt->execute();
 
             return $stmt->fetchAll();

@@ -10,6 +10,7 @@
 
     $db = getDatabaseConnection();
 
+    //TODO VERIFY IF THERE IS ALREADY A RESTAURANT WITH THAT NAME
 
     if(Restaurant::createRestaurant($db, (int)$session->getId(), (int)$_POST['category'], $_POST['name'], $_POST['address']) == FALSE)
         $session->addMessage('error', 'Something Went Wrong while creating the restaurant');

@@ -1,21 +1,42 @@
 <?php
 
-    function output_edit_dishes_content(){ ?>
+    function output_edit_dishes_content($dishes, $categories){ ?>
 
         <section class="userRestaurants">
         <span>
-            <p id="addbtndish" ><a href="">Add a new dish</a></p>
+            <p id="addbtndish" ><a href="#0">Add a new dish</a></p>
         </span>
 
-        foreach(
+        <?php
+
+        if($dishes == null){ ?>
+
+            <section>
+                <section id="shownorestmessage">
+                    <i class="fa-solid fa-rectangle-xmark fa-bounce"></i>
+                    <p>You haven't registered any dishes yet</p>
+                </section>
+            </section>
+
+        <?php }
+
+        foreach($dishes as $dish) {
+            foreach($categories as $category){
+                if($category['IdCategory'] == $dish->IdCategory){
+                    $categoryname = $category['CategoryTitle'];
+                }
+            }
+            ?>
         <article>
-            <img id="restaurantprofilepicture" src="https://i.picsum.photos/id/658/200/200.jpg?hmac=f24wxXCkgtH72eZ6mY95KRxTyvEG-_3ysR9z-R0a1QM" alt = "restaurant photo">
-            <p id="editrestaurantprofilepic"><a href="">Edit Dish Picture <i class="fa-solid fa-pen-to-square editicon"></i></a></p>
-            <p id="dishname"> <a href="">Nome: Nome do Prato <i class="fa-solid fa-pen-to-square editicon"></i></a></p>
-            <p id="dishprice"> <a href="">Preco: 932&#8364 <i class="fa-solid fa-pen-to-square editicon"></i></a></p>
-            <p id="dishcategory"> <a href="">Categoria: FastFood <i class="fa-solid fa-pen-to-square editicon"></i></a></p>
-            <p id="removeplate"><a href="">Remover Prato</a></p>
+            <img id="restaurantprofilepicture" src="https://i.picsum.photos/id/658/200/200.jpg?hmac=f24wxXCkgtH72eZ6mY95KRxTyvEG-_3ysR9z-R0a1QM" alt = "dish photo">
+            <p id="editrestaurantprofilepic"><a href="#0">Edit Dish Picture <i class="fa-solid fa-pen-to-square editicon"></i></a></p>
+            <p id="dishname">Nome: <a href="#0"> <?=$dish->name?> <i class="fa-solid fa-pen-to-square editicon"></i></a></p>
+            <p id="dishprice">Preco: <a href="#0"> <?=$dish->price?></a>&#8364<i class="fa-solid fa-pen-to-square editicon"></i></p>
+            <p id="dishcategory">Categoria: <a href=""> <?=$categoryname?> <i class="fa-solid fa-pen-to-square editicon"></i></a></p>
+            <p id="removeplate"><a href="#0">Remover Prato</a></p>
         </article>
+
+        <?php } ?>
 
     </section>
 

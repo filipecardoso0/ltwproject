@@ -13,7 +13,7 @@ function display_addrestaurantform(){
 function addrestaurant_backgroundclick(){
     const bg = document.querySelector("#addrestaurantform")
 
-    document.addEventListener("click", function(event){
+    window.addEventListener("click", function(event){
         if(event.target == bg){
             removeBackgroundBlur()
             hideform()

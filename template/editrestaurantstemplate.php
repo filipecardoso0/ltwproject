@@ -12,7 +12,7 @@
             //Outputs user Restaurants if any else display Text
             if($userRestaurants == null) { ?>
             <section id="shownorestmessage">
-                <i class="fa-solid fa-rectangle-xmark fa-shake"></i>
+                <i class="fa-solid fa-rectangle-xmark fa-bounce"></i>
                 <p>You haven't registered any restaurants yet</p>
             </section>
             <?php }
@@ -21,6 +21,7 @@
                 //Gets restaurant categoryTitle
                 $category = Category::getCategoryWithId($db, (int)$restaurant['IdCategory']);
 
+                //TODO $userRestaurants to a varaible already given by a SQL Query none of this stupid verifications
                 //Only outputs restaurant if it belongs to the user
                 if((int)$session->getId() === (int)$restaurant['IdOwner']) { ?>
             <article>

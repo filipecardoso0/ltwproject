@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="../style/editdishform.css">
+    <meta charset="UTF-8">
+    <title>Ready2Eat</title>
+
+    <!-- FONT AWESOME ICONS CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+<section class="editdishform">
+    <form>
+        <span><i class="fa-solid fa-circle-xmark"></i></span>
+        <h1>Create Dish</h1>
+        <section>
+            <label>Name:</label>
+            <input type="text" name="name"  required>
+            <i class="fa-solid fa-tag"></i>
+        </section>
+        <section>
+            <label>Price:</label>
+            <input type="text" name="address" required>
+            <i class="fa-solid fa-map"></i>
+        </section>
+        <section>
+            <label>Exibition Image :</label>
+            <input type="file" name="image" required>
+        </section>
+        <section>
+            <label>Category:</label>
+            <select name="categorias">
+                <option value="categoria1">Categoria 1</option>
+                <option value="categoria2" selected>Categoria 2</option>
+                <option value="categoria3">Categoria 3</option>
+                <option value="categoria4">Categoria 4</option>
+            </select >
+        </section>
+        <button formaction="action_createdish" formmethod="post" type="submit">Make Changes!</button>
+    </form>
+</section>
+</body>
+</html>

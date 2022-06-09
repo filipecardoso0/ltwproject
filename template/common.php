@@ -80,12 +80,14 @@
         <link rel="stylesheet" href="style/PEstyle.css">
         <link rel="stylesheet" href="../style/editinfoform.css">
         <link rel="stylesheet" href="../style/editrestaurantform.css">
+        <link rel="stylesheet" href="../style/editdishform.css">
         <meta charset="UTF-8">
         <title>Ready2Eat</title>
 
         <!-- JS -->
-        <script src="../javascript/modalusereditform.js" defer></script> <!--Edit profile modals-->
+        <script src="../javascript/modalusereditform.js" defer></script> <!--Edit profile modals -->
         <script src="../javascript/modalrestauranteditform.js" defer></script> <!-- Edit restaurant info modals -->
+        <script src="../javascript/modaleditdishform.js" defer></script> <!--Edit dish modal -->
         <script src="../javascript/modalconfirmchanges.js" defer></script> <!-- Confirm changes modal -->
         <script src="../javascript/modalgeneral.js" defer></script> <!-- Modal form general functions -->
 

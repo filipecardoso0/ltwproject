@@ -76,7 +76,7 @@ function makechanges(){
 function backgroundclick(){
     const bg = document.querySelector("#forms")
 
-    document.addEventListener("click", function(event){
+    window.addEventListener("click", function(event){
        if(event.target == bg){
            removeBackgroundBlur()
            hideform()
