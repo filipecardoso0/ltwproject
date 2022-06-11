@@ -18,6 +18,8 @@
 
     if($session->isLoggedIn()){
         output_header_editprofile();
+        //Display messages
+        output_message($session);
         output_edit_dishes_content($dishes, $dishcategories);
         output_footer();
         output_editdishtemplate($dishcategories, $restaurantid);

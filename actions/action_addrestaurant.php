@@ -31,7 +31,7 @@
                 //Something unexpected happened (Maybe image size too big)
 
                 //Undo changes (Remove restaurant)
-                removerestaurant($db, $restaurant->idRestaurant);
+                removerestaurant($db, $restaurant->IdRestaurant);
 
                 $session->addMessage('error', 'Something went wrong while assigning a profile image to your restaurant. Try using another image or a valid format (PNG/JPEG/GIF)');
             }

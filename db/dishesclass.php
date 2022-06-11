@@ -34,7 +34,7 @@
             return $dishes;
         }
 
-        static function removeDish(PDO $db, int $dishid) :?bool{
+        static function removeDishDb(PDO $db, int $dishid) :?bool{
             $stmt = $db->prepare('Delete from Dish Where IdDish = ?');
             if($stmt->execute(array($dishid)))
                 return true;

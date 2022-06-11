@@ -32,7 +32,7 @@
         <article>
             <!-- Dish Id -->
             <input style="display: none" type="text" value="<?=$dish->IdDish?>">
-            <img id="restaurantprofilepicture" src="https://i.picsum.photos/id/658/200/200.jpg?hmac=f24wxXCkgtH72eZ6mY95KRxTyvEG-_3ysR9z-R0a1QM" alt = "dish photo">
+            <img id="restaurantprofilepicture" src="../images/thumbs_medium/dish_<?=$dish->IdDish?>.jpg" alt = "dish photo">
             <p id="editrestaurantprofilepic"><a href="#0">Edit Dish Picture <i class="fa-solid fa-pen-to-square editicon"></i></a></p>
             <p id="dishname">Nome: <a href="#0"> <?=$dish->name?> <i class="fa-solid fa-pen-to-square editicon"></i></a></p>
             <p id="dishprice">Preco: <a href="#0"> <?=$dish->price?></a>&#8364<i class="fa-solid fa-pen-to-square editicon"></i></p>
