@@ -1,5 +1,8 @@
 <?php
 
+    //TODO REMOVE UNUSED CLASS FUNCTIONS -> REFACTOR RESTAURANT CLASS TOO
+    //TODO VERIFICATION -> NO RESTAURANT CAN HAVE 2 DISHES WITH THE SAME NAME
+
     declare(strict_types = 1);
 
     class Dish{
@@ -31,16 +34,38 @@
             return $dishes;
         }
 
-        static function getDishId(PDO $db, string $name, int $idRestaurant){
-            $stmt = $db->prepare('SELECT IdDish from Dish where Name = ? AND idRestaurant = ?');
+        static function removeDish(PDO $db, int $dishid) :?bool{
+            $stmt = $db->prepare('Delete from Dish Where IdDish = ?');
+            if($stmt->execute(array($dishid)))
+                return true;
+
+            return false;
+        }
+
+        static function removeallRestaurantDishes(PDO $db, int $restaurantid) :?bool{
+            $stmt = $db->prepare('Delete from Dish Where IdRestaurant = ?');
+            if($stmt->execute(array($restaurantid)))
+                return true;
+
+            return false;
+        }
+
+        static function getDishWithId(PDO $db, int $dishid) :?Dish{
+            $stmt = $db->prepare('Select IdRestaurant, IdCategory, Name, Price FROM Dish Where IdDish = ?');
+            $stmt->execute(array($dishid));
+            $dish = $stmt->fetch();
+            return new Dish($dishid, (int)$dish['IdRestaurant'], (int)$dish['IdCategory'], $dish['Name'], (int)$dish['Price']);
+        }
+
+            static function getDishWithNameandRestaurantId(PDO $db, string $name, int $idRestaurant){
+            $stmt = $db->prepare('SELECT IdDish, IdCategory, Price from Dish Where Name = ? AND IdRestaurant = ?');
             $stmt->execute(array($name, $idRestaurant));
 
-            if($IdDish = $stmt->fetch()){
-                return $IdDish;
-            }
-            else{
+            if($dish = $stmt->fetch())
+                return new Dish((int)$dish['IdDish'], (int)$idRestaurant, (int)$dish['IdCategory'], $name, (int)$dish['Price']);
+            else
                 return null;
-            }
+
         }
 
         static function getDishName(PDO $db, int $IdDish){
@@ -61,7 +86,31 @@
             if($stmt->execute(array($IdRestaurant, $IdCategory, $Name, $Price)))
                 return true;
             else
+                return false;
+        }
+
+        static function editDishPrice(PDO $db, $dishid, $newprice) :?bool{
+            $stmt = $db->prepare('UPDATE Dish SET Price = ? Where IdDish = ?');
+            if($stmt->execute(array($newprice, $dishid)))
                 return true;
+
+            return false;
+        }
+
+        static function editDishName(PDO $db, $dishid, $newname): ?bool{
+            $stmt = $db->prepare('Update Dish Set Name = ? Where IdDish = ?');
+            if($stmt->execute(array($newname, $dishid)))
+                return true;
+
+            return false;
+        }
+
+        static function editDishCategory(PDO $db, $dishid, $newcategory) :?bool{
+            $stmt = $db->prepare('Update Dish Set IdCategory = ? Where IdDish = ?');
+            if($stmt->execute(array($newcategory, $dishid)))
+                return true;
+
+            return false;
         }
 
         static function createNewDish(PDO $db, string $name, int $price, string $category, string $photo, int $idRestaurant){

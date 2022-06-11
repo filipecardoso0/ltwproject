@@ -4,6 +4,7 @@
 
     require_once(__DIR__ . '/../db/connectiondb.php');
     require_once(__DIR__ . '/../utils/session.php');
+    require_once(__DIR__ . '/../db/dishesclass.php');
 
     $session = new Session();
 
@@ -13,9 +14,14 @@
 
         $stmt = $db->prepare("Delete from Restaurant Where IdRestaurant = ?");
         if($stmt->execute(array($restaurantid))){
+            //Removes all restaurant dishes
+            if(!Dish::removeallRestaurantDishes($db, (int)$restaurantid))
+                return false;
+
             //Removes The image with the IdRestaurant -> Had to use this statement, because for some weird reason ON DELETE CASCADE is not working
             $stmt2 = $db->prepare("Delete from RestaurantImage Where IdRestaurant = ?");
-            $stmt2->execute((array($restaurantid)));
+            if(!$stmt2->execute((array($restaurantid))))
+                return false;
 
             //Deletes the file from the folder
             unlink("../images/originals/restaurant_$restaurantid.jpg");

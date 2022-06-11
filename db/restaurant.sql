@@ -14,6 +14,7 @@ DROP TABLE IF EXISTS Dish;
 DROP TABLE IF EXISTS Customer; 
 DROP TABLE IF EXISTS Category;
 DROP TABLE IF EXISTS RestaurantImage;
+DROP TABLE IF EXISTS DishImage;
 
 CREATE TABLE User(
     IdUser INTEGER, 
@@ -115,6 +116,11 @@ CREATE TABLE DishCategory(
 CREATE TABLE RestaurantImage(
     IdImage Integer PRIMARY KEY,
     IdRestaurant Integer REFERENCES Restaurant ON DELETE CASCADE
+);
+
+CREATE TABLE DishImage(
+    IdImage Integer PRIMARY KEY,
+    IdDish Integer REFERENCES Dish ON DELETE CASCADE
 );
 
 /* DEFAULT CATEGORY VALUES */

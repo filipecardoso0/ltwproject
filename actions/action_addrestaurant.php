@@ -1,10 +1,12 @@
 <?php
 
+    //TODO CHANGE RESTAURANT::GET... TO GET THE RESTAURANT WHICH WAS JUST ADDED TO $db->lastInsertId() -> Do this on User too
+
     require_once(__DIR__ . '/../db/connectiondb.php');
     require_once(__DIR__ . '/../db/restaurantclass.php');
     require_once(__DIR__ . '/../utils/session.php');
     require_once(__DIR__ . '/action_imageupload.php');
-    require_once('action_removerestaurant.php');
+    require_once(__DIR__ . '/action_removerestaurant.php');
 
     $session = new Session();
 

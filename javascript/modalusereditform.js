@@ -1,3 +1,5 @@
+//TODO CODE CLEANUP: REMOVE "HARDCODED" CONFIRMCHANGES FORM AND DISPLAY IT AS IN THE OTHER FORMS
+
 function display_confirmchanges(){
     const form = document.querySelector("#forms section:last-child")
     form.classList.add("show")
@@ -56,7 +58,7 @@ function display_phonenumber(){
         btn.classList.add("active")
         const form = document.querySelector("#phonenumberform")
         form.classList.add("show")
-        addBackgroundBlur()
+        addBackgroundBlur("forms")
     })
 }
 

@@ -19,6 +19,7 @@ function closeform(){
         CancelBtn.addEventListener("click", () => {
             removeBackgroundBlur()
             hideform()
+            unmarkactive()
         })
     }
 }

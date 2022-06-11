@@ -11,7 +11,7 @@
             $type = "user_";
         }
         else if($table == "DishImage"){
-            $stmt = $db->prepare("INSERT INTO DishImage VALUES(?)");
+            $stmt = $db->prepare("INSERT INTO DishImage (IdDish) VALUES(?)");
             $type = "dish_";
         }
         else{

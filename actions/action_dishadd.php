@@ -7,8 +7,9 @@
     $session = new Session();
     $db = getDatabaseConnection();
 
-    if(Dish::createDish($db, (int)$_POST['IdRestaurant'], (int)$_POST['IdCategory'], $_POST['Name'], (int)$_POST['Price']))
+    if(Dish::createDish($db, (int)$_POST['IdRestaurant'], (int)$_POST['IdCategory'], $_POST['Name'], (int)$_POST['Price'])){
         $session->addMessage("success", "Dish added successfully");
+    }
     else
         $session->addMessage("error", "Something Went Wrong Wile trying to creating the dish");
 
