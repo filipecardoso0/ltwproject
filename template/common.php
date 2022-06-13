@@ -46,6 +46,7 @@
     <html lang="en">
     <head>
         <link rel="stylesheet" href="../style/style.css">
+        <link rel="stylesheet" href="../style/styleRestaurantView.css">
         <link rel="stylesheet" href="../style/form.css">
         <meta charset="UTF-8">
         <title>Ready2Eat</title>

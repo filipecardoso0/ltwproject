@@ -10,8 +10,8 @@ function output_main_content(PDO $db, $restaurants, $categories){ ?>
     <section id="toprated">
     <?php foreach($restaurants as $restaurant){ ?>
         <article>
-            <img src="images/thumbs_medium/restaurant_<?=$restaurant['IdRestaurant']?>.jpg" alt="restaurant profile picture">
-            <h2><a href=""><?=$restaurant['name']?></a></h2>
+            <a href="restaurantpage.php?id=<?=$restaurant['IdRestaurant']?>"><img src="images/thumbs_medium/restaurant_<?=$restaurant['IdRestaurant']?>.jpg" alt="restaurant profile picture"></a>
+            <h2><a href="restaurantpage.php?id=<?=$restaurant['IdRestaurant']?>"><?=$restaurant['name']?></a></h2>
             <p>Morada: <?=$restaurant['address']?></p>
             <p>Rating do Restaurante 1</p>
             <p>Média de Preco: <span>€</span></p>
