@@ -7,18 +7,19 @@
         <!-- Section Responsible for some core Restaurant Page functionalities-->
         <input id="userid" style="display: none" type="text" value="<?=$userid?>">
         <input id="restaurantid" style="display:none" type="text" value="<?=$restaurantinfo->IdRestaurant?>">
-        <h1><?=$restaurantinfo->name?><a href="#0"><i class="fa-solid fa-heart fav"></i></a></h1>
+        <h1>Restaurant: <?=$restaurantinfo->name?><a href="#0"><i class="fa-solid fa-heart fav"></i></a></h1>
     </section>
 
     <section id="dishmenu">
         <?php foreach($dishcategories as $dishcategory){
             $dishes = Dish::getCategoryDishes($db, $restaurantinfo->IdRestaurant, $dishcategory['IdCategory']);?>
-            <h2><a><?=$dishcategory['CategoryTitle']?></a></h2>
-            <section id="<?=$dishcategory['IdCategory']?>">
+            <h2 id="<?=$dishcategory['IdCategory']?>"><a><?=$dishcategory['CategoryTitle']?></a></h2>
+            <section>
                 <?php if(count($dishes) != 0){?>
                     <?php foreach($dishes as $dish){ ?>
                             <article>
-                                <a href="#0">
+                                <input style="display: none" type="text" value="<?=$dish->IdDish?>">
+                                <a href="#0" class="dishimage">
                                     <img src="../images/thumbs_medium/dish_<?=$dish->IdDish?>.jpg" alt="dish image">
                                 </a>
                                 <p>Name: <?=$dish->name?></p>

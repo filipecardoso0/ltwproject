@@ -4,6 +4,7 @@ async function likerestaurant (){
     const userid = document.getElementById("userid").value
     const restaurantid = document.getElementById("restaurantid").value
 
+
     //Asserts if the user likes the restaurant the first time he enters the page
     let found = await userLikesCurrentRestaurant(restaurantid)
 
@@ -68,6 +69,9 @@ async function userLikesCurrentRestaurant(restaurantid){
 
 async function fetchUserLikedRestaurants(){
     const userid = document.getElementById("userid").value
+    if(userid == null)
+        return null
+
     const response = await fetch('../api/api_userlikedrestaurants.php?id=' + userid)
     const likedrestaurants = await response.json()
 
