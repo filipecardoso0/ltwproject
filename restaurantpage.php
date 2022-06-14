@@ -4,6 +4,7 @@
     require_once('template/restaurantpagetemplate.php');
     require_once ('template/modalregisterloginforms.php');
     require_once('template/modalrestaurantdish.php');
+    require_once('template/modalshoppingcart.php');
     require_once('db/connectiondb.php');
     require_once('utils/session.php');
     require_once('db/restaurantclass.php');
@@ -27,5 +28,6 @@
     output_footer();
     output_modal_register_login_forms();
     output_modal_restaurantdish();
+    output_modal_shoppingcart();
 
 ?>

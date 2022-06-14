@@ -1,6 +1,3 @@
-//Global Variables
-let currquantity;
-
 function show_modaldishinfoform(){
     const dishimages = document.querySelectorAll(".dishimage")
     const form = document.getElementById("dishinfo")
@@ -34,9 +31,10 @@ async function drawFormInformation(){
     const dishname = document.querySelector("#dishdetails h2")
     const img = document.getElementById("modaldishimage")
     const likebtn = document.getElementById("favbtndish")
-    let found = false
-    const userid = document.getElementById("userid").value
     const dishid = document.querySelector(".active input").value
+
+    let found = false
+    let currquantity = 0
 
     price.innerHTML = forminfo['price']
     dishname.innerHTML = forminfo['name']
@@ -66,17 +64,7 @@ async function drawFormInformation(){
         }
     })
 
-}
-
-async function getDishInformation(){
-    const dishid = document.querySelector(".active input").value
-    const response = await fetch('../api/api_dish.php?id=' + dishid)
-    const info = await response.json()
-
-    return info
-}
-
-function managedishquantity(){
+    //Manage dish quantity
     const addbtn = document.getElementById("addquantity")
     const rmvbtn = document.getElementById("removequantity")
     const currquantityfield = document.getElementById("quantityammount");
@@ -94,6 +82,52 @@ function managedishquantity(){
         }
     })
 
+    additem2Cart()
+
+}
+
+function additem2Cart(){
+
+    const cartbtn = document.getElementById("")
+
+    add2cartbtn.addEventListener("click", ()=>{
+        /*
+        const price = forminfo['price']
+        const restaurantid = document.getElementById("restaurantid").value
+        const dishname = forminfo['name']
+
+        let basket = JSON.parse(localStorage.getItem("cartdata")) || []
+
+        basket.push({
+            id: dishid,
+            price: price,
+            quantity: currquantity,
+            name: dishname,
+            restaurantid: restaurantid,
+        });
+
+        localStorage.setItem("cartdata", JSON.stringify(basket))
+
+         */
+
+        console.log("Teste")
+
+        //Close modal
+        hideform()
+        removeBackgroundBlur()
+
+    }, {
+        once: true,
+    })
+
+}
+
+async function getDishInformation(){
+    const dishid = document.querySelector(".active input").value
+    const response = await fetch('../api/api_dish.php?id=' + dishid)
+    const info = await response.json()
+
+    return info
 }
 
 async function assertLikeDish(dishid){
@@ -144,4 +178,3 @@ async function getUserLikedDishes(){
 
 show_modaldishinfoform()
 modaldishinfoform_backgroundclick()
-managedishquantity()

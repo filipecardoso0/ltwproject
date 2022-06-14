@@ -13,6 +13,7 @@
         <link rel="stylesheet" href="../style/styleRestaurantView.css">
         <link rel="stylesheet" href="../style/dishdetails.css">
         <link rel="stylesheet" href="../style/form.css">
+        <link rel="stylesheet" href="../style/cartstyle.css">
         <link rel="stylesheet" href="../style/responsive.css">
         <meta charset="UTF-8">
         <title>Ready2Eat</title>
@@ -22,7 +23,10 @@
         <script src="../javascript/modalgeneral.js" defer></script> <!-- Modal form general functions -->
         <script src="../javascript/likerestaurant.js" defer></script><!--Add restaurant to favourite JS-->
         <script src="../javascript/modaldishdetails.js" defer></script> <!-- Dish details modal form -->
+        <script src="../javascript/modalshoppingcart.js" defer></script> <!-- Modal Shopping cart form -->
+        <script src="../javascript/modalgeneral.js" defer></script> <!-- Modal form general functions -->
         <script src="../javascript/encodeajax.js" defer></script> <!-- AJAX Encode function -->
+
 
         <!-- FONT AWESOME ICONS CDN -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -30,7 +34,7 @@
     <body>
     <header>
         <a href="index.php">Ready2Eat</a>
-        <a id="shopping-cart" href="">Carrinho</a>
+        <a id="shopping-cart" href="#0">Cart</a>
         <a href="#0" id="login">Login</a>
         <a href="#0" id="register">Register</a>
 
@@ -53,6 +57,7 @@
         <link rel="stylesheet" href="../style/style.css">
         <link rel="stylesheet" href="../style/styleRestaurantView.css">
         <link rel="stylesheet" href="../style/dishdetails.css">
+        <link rel="stylesheet" href="../style/cartstyle.css">
         <link rel="stylesheet" href="../style/form.css">
         <link rel="stylesheet" href="../style/responsive.css">
 
@@ -62,8 +67,9 @@
         <!-- JS -->
         <script src="../javascript/likerestaurant.js" defer></script><!--Add restaurant to favourite JS-->
         <script src="../javascript/modaldishdetails.js" defer></script> <!-- Dish details modal form -->
-        <script src="../javascript/encodeajax.js" defer></script> <!-- AJAX Encode function -->
+        <script src="../javascript/modalshoppingcart.js" defer></script> <!-- Modal Shopping cart form -->
         <script src="../javascript/modalgeneral.js" defer></script> <!-- Modal form general functions -->
+        <script src="../javascript/encodeajax.js" defer></script> <!-- AJAX Encode function -->
 
         <!-- FONT AWESOME ICONS CDN -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -71,7 +77,7 @@
     <body>
     <header>
         <a href="index.php">Ready2Eat</a>
-        <a id="shopping-cart" href="">Carrinho</a>
+        <a id="shopping-cart" href="#0">Cart</a>
         <a href="editprofile.php" id="navname"><img src="https://i.picsum.photos/id/658/200/200.jpg?hmac=f24wxXCkgtH72eZ6mY95KRxTyvEG-_3ysR9z-R0a1QM" alt="User Profile Picture"> <?=$name?></a>
         <a href="actions/action_logout.php">Sign Out</a>
 
@@ -91,8 +97,8 @@
     <html lang="en">
 
     <head>
-        <link rel="stylesheet" href="style/style.css">
-        <link rel="stylesheet" href="style/PEstyle.css">
+        <link rel="stylesheet" href="../style/style.css">
+        <link rel="stylesheet" href="../style/PEstyle.css">
         <link rel="stylesheet" href="../style/editinfoform.css">
         <link rel="stylesheet" href="../style/editrestaurantform.css">
         <link rel="stylesheet" href="../style/editdishform.css">

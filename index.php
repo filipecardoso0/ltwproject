@@ -1,8 +1,9 @@
 <?php
     //Templates Section (Common html code to a lot of pages)
-    require_once ('template/common.php');
-    require_once ('template/mainpagecontent.php');
-    require_once ('template/modalregisterloginforms.php');
+    require_once('template/common.php');
+    require_once('template/mainpagecontent.php');
+    require_once('template/modalregisterloginforms.php');
+    require_once('template/modalshoppingcart.php');
     require_once('utils/session.php');
     require_once('db/connectiondb.php');
     require_once('db/categoryclass.php');
@@ -28,6 +29,8 @@
     output_footer();
     //Draws modal login register form
     output_modal_register_login_forms();
+    //Outputs modal shopping cart
+    output_modal_shoppingcart();
     //Closes html tags
     echo '</body></html>'
 ?>

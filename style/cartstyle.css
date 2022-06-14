@@ -1,0 +1,98 @@
+#shoppingcart{
+    position: fixed;
+    left: 50%;
+    top: 50%;
+}
+
+#cart{
+    width: 100%;
+    border: 5px solid black;
+    padding-left: 50px;
+    padding-right: 50px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    background-color: rgba(169, 169, 169, 0.85);
+    border-radius: 5px;
+}
+
+#cartrestaurantname{
+    color: white;
+    font-weight: bold;
+}
+
+#cartitems{
+    max-height:250px;
+    overflow-y:scroll;
+    /* This and Below Code Snippets are for hiding scrollbar but still be able to scroll*/
+    -ms-overflow-style: none;
+    overflow: -moz-scrollbars-none;
+    scrollbar-width: none;
+    margin-bottom: 2em;
+}
+
+#cartitems::-webkit-scrollbar{
+    display: none;  /* Safari and Chrome */
+}
+
+.cartitem{
+    border: 2px solid white;
+    border-radius: 10px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    display: flex;
+}
+
+.itemimage{
+    margin-top: 5px;
+    margin-bottom: 5px;
+    margin-left: 30px;
+    width: 60px;
+    height: 60px;
+    background-color: #000;
+    border-radius: 50%/50%;
+    align-self: center;
+}
+
+.cartiteminfo{
+    display: flex;
+    flex-direction: row;
+    margin-left: auto;
+    margin-right: 20%;
+}
+
+.itemprice{
+    margin-right: 25px;
+}
+
+.cartiteminfo p{
+    color: black;
+    font-weight: bold;
+}
+
+.itemprice{
+    text-decoration: none;
+    color: white;
+}
+
+#checkoutsection{
+    background-color: black;
+    text-align: center;
+}
+
+#checkoutbtn{
+    color: white;
+}
+
+#titlecart{
+    display: flex;
+    flex-direction: row;
+}
+
+#cartclosebtn{
+    margin-left: auto;
+}
+
+
