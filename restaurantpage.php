@@ -21,7 +21,7 @@
         output_header_notloggedin();
     }
     output_message($session);
-    output_restaurantpage_content($restaurantinfo, $restaurantdishes);
+    output_restaurantpage_content($restaurantinfo, $restaurantdishes, $session->getId());
     output_modal_register_login_forms();
     output_footer();
 

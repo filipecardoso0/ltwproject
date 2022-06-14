@@ -6,14 +6,20 @@ body{
     grid-template-rows: auto 0.01fr auto 1fr auto;
 }
 
-h1{
+restaurantheader{
     grid-column-start: 2;
     grid-column-end: 3;
     grid-row-start: 3;
     grid-row-end: 4;
-    text-align: center;
-    font-weight: 900;
     margin-top: 0.5em;
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-template-rows: auto;
+}
+
+restaurantheader h1{
+    font-weight: bold;
+    text-align: center;
 }
 
 #categorias{
@@ -44,5 +50,17 @@ h1{
     flex-direction: row; 
     flex-grow: 1;
     justify-content: space-around;
+}
+
+#restaurantheader h1{
+    grid-column: 1/2;
+    grid-row: 1/2;
+}
+
+.fav{
+    color: black;
+    font-size: 35px;
+    float: right;
+    margin-right: 1em;
 }
 

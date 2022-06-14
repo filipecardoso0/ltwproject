@@ -1,8 +1,12 @@
 <?php
 
-    function output_restaurantpage_content($dishes){ ?>
-
-    <h1>Nome do Restaurante</h1>
+    function output_restaurantpage_content($restaurantinfo, $dishes, $userid){ ?>
+    <section id="restaurantheader">
+        <!-- Section Responsible for some core Restaurant Page functionalities-->
+        <input id="userid" style="display: none" type="text" value="<?=$userid?>">
+        <input id="restaurantid" style="display:none" type="text" value="<?=$restaurantinfo->IdRestaurant?>">
+        <h1><?=$restaurantinfo->name?><a href="#0"><i class="fa-solid fa-heart fav"></i></a></h1>
+    </section>
         <section id="carta">
             <h2><a>Entradas</a></h2>
             <article id="entradas">

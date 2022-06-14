@@ -29,12 +29,6 @@ function addBackgroundBlur(elementid){
     bg.classList.add("modalbody")
 }
 
-function encodeForAjax(data) {
-    return Object.keys(data).map(function(k){
-        return encodeURIComponent(k) + '=' + encodeURIComponent(data[k])
-    }).join('&')
-}
-
 function unmarkactive(){
     const active = document.querySelector(".active")
     if(active != null)

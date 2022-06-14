@@ -18,7 +18,6 @@
         <script src="../javascript/modalregloginform.js" defer></script> <!-- Modal login & register forms -->
         <script src="../javascript/modalgeneral.js" defer></script> <!-- Modal form general functions -->
 
-
         <!-- FONT AWESOME ICONS CDN -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     </head>
@@ -50,6 +49,10 @@
         <link rel="stylesheet" href="../style/form.css">
         <meta charset="UTF-8">
         <title>Ready2Eat</title>
+
+        <!-- JS -->
+        <script src="../javascript/likerestaurant.js" defer></script><!--Add restaurant to favourite JS-->
+        <script src="../javascript/encodeajax.js" defer></script> <!-- AJAX Encode function -->
 
         <!-- FONT AWESOME ICONS CDN -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -91,6 +94,7 @@
         <script src="../javascript/modaleditdishform.js" defer></script> <!--Edit dish modal -->
         <script src="../javascript/modalconfirmchanges.js" defer></script> <!-- Confirm changes modal -->
         <script src="../javascript/modalgeneral.js" defer></script> <!-- Modal form general functions -->
+        <script src="../javascript/encodeajax.js" defer></script> <!-- Ajax encode function -->
 
         <!-- FONT AWESOME ICONS CDN -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
