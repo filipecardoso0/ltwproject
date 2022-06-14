@@ -15,7 +15,7 @@
                     </section>
                     <section id="cartsection">
                         <a href="#0" class="quantitybtn" id="removequantity"><i class="fa-solid fa-circle-minus"></i></a>
-                        <p id="quantityammount">0</p>
+                        <p id="quantityammount">1</p>
                         <a href="#0" class="quantitybtn" id="addquantity"><i class="fa-solid fa-circle-plus"></i></a>
                         <a href="#0" id="add2cartbtn">Add to Cart</a>
                     </section>

@@ -3,7 +3,7 @@ function show_modaldishinfoform(){
     const form = document.getElementById("dishinfo")
 
     for(let dishimage of dishimages){
-        dishimage.addEventListener("click", ()=>{
+        dishimage.addEventListener("click",  () => {
             form.classList.add("show")
             addBackgroundBlur("dishdetailsform")
             dishimage.parentElement.classList.add("active")
@@ -34,7 +34,7 @@ async function drawFormInformation(){
     const dishid = document.querySelector(".active input").value
 
     let found = false
-    let currquantity = 0
+    let currquantity = 1
 
     price.innerHTML = forminfo['price']
     dishname.innerHTML = forminfo['name']
@@ -67,7 +67,7 @@ async function drawFormInformation(){
     //Manage dish quantity
     const addbtn = document.getElementById("addquantity")
     const rmvbtn = document.getElementById("removequantity")
-    const currquantityfield = document.getElementById("quantityammount");
+    const currquantityfield = document.getElementById("quantityammount")
     currquantity = parseInt(currquantityfield.innerHTML)
 
     addbtn.addEventListener("click", ()=>{
@@ -76,51 +76,103 @@ async function drawFormInformation(){
     })
 
     rmvbtn.addEventListener("click", ()=>{
-        if(currquantity > 0){
+        if(currquantity > 1){
             currquantity--;
             currquantityfield.innerHTML = currquantity;
         }
     })
 
-    additem2Cart()
+    const cartbtn = document.getElementById("add2cartbtn")
 
-}
+    cartbtn.addEventListener("click", ()=>{
 
-function additem2Cart(){
-
-    const cartbtn = document.getElementById("")
-
-    add2cartbtn.addEventListener("click", ()=>{
-        /*
-        const price = forminfo['price']
-        const restaurantid = document.getElementById("restaurantid").value
+        const dishprice = forminfo['price']
         const dishname = forminfo['name']
+        const productquantity = document.getElementById("quantityammount").innerHTML
+        const restaurantid = document.getElementById("restaurantid").value
+        const dishid = document.querySelector(".active input").value
+
 
         let basket = JSON.parse(localStorage.getItem("cartdata")) || []
 
         basket.push({
             id: dishid,
-            price: price,
-            quantity: currquantity,
+            price: dishprice,
+            quantity: productquantity,
             name: dishname,
             restaurantid: restaurantid,
         });
 
+        //Adds values to local storage
         localStorage.setItem("cartdata", JSON.stringify(basket))
 
-         */
-
-        console.log("Teste")
-
+        //Reset count value
+        document.getElementById("quantityammount").innerHTML = 1
         //Close modal
         hideform()
         removeBackgroundBlur()
-
-    }, {
-        once: true,
     })
 
 }
+
+/*
+
+
+function addItemToCart(){
+
+const currquantityfield = document.getElementById("quantityammount");
+const quantity = parseInt(currquantityfield.innerHTML)
+const dishid = document.querySelector(".active input").value
+const restaurantid = document.getElementById("restaurantid")
+
+const cartbtn = document.getElementById("add2cartbtn")
+
+cartbtn.addEventListener("click", ()=>{
+    console.log(quantity)
+    console.log(dishid)
+    console.log(restaurantid)
+})
+
+
+const cartbtn = document.getElementById("add2cartbtn")
+
+cartbtn.addEventListener("click", ()=>{
+
+    let basket = JSON.parse(localStorage.getItem("cartdata")) || []
+
+    console.log("Dish id: " + dishid)
+    console.log("Price: " + price)
+    console.log("Currquantity: " + currquantity)
+    console.log("Dish name: " + dishname)
+    console.log("Restaurant id: " + restaurantid)
+
+    basket.push({
+        id: dishid,
+        price: price,
+        quantity: currquantity,
+        name: dishname,
+        restaurantid: restaurantid,
+    });
+
+    //Adds values to local storage
+    localStorage.setItem("cartdata", JSON.stringify(basket))
+
+    //Reset count value
+    document.getElementById("quantityammount").innerHTML = 1
+    //Close modal
+    hideform()
+    removeBackgroundBlur()
+
+},{
+    once: true,
+})
+
+
+
+
+}
+
+ */
 
 async function getDishInformation(){
     const dishid = document.querySelector(".active input").value
