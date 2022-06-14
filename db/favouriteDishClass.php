@@ -3,61 +3,44 @@
     declare(strict_types = 1);
 
     class FavouriteDish{
-        public int $idFavouriteDish;
-        public int $idUser;
-        public int $idDishes;
-    }
+        public int $IdFavouriteDish;
+        public int $IdUser;
+        public int $IdDish;
 
-    public function __construct(int $idFavouriteDish, int $idDishes, int $idUser){
-        $this->idFavouriteDish = $idFavouriteDish;
-        $this->idUser = $idUser;
-        $this->idDishes = $idDishes;
-    }
 
-    static function getFavouriteDishName(PDO $db, int $idFavouriteDish){
-        $stmt = $db->prepare('select dishes.name from dishes, favouriteDish where dishes.idDishes = ?');
-        $stmt->execute(array($idFavouriteDish));
-
-        if($name = $stmt->fetch()){
-            return $name;
-        }
-        else{
-            return null;
+        public function __construct(int $IdFavouriteDish, int $IdUser, int $IdDish){
+            $this->IdFavouriteDish = $IdFavouriteDish;
+            $this->IdUser = $IdUser;
+            $this->IdDish = $IdDish;
         }
 
-        
-    }
+        static function getUserLikedDishes(PDO $db, int $IdUser){
+            $stmt = $db->prepare('Select IdFavouriteDish, IdDish FROM FavouriteDish Where IdUser = ?');
+            $stmt->execute(array($IdUser));
 
-    static function getDishId(PDO $db, int $idFavouriteDish){
-        $stmt = $db->prepare('select idDishes from dishes where idDishes = ?');
-        $stmt->execute(array($idFavouriteDish));
+            $likedishes = array();
+            while($likedish = $stmt->fetch()){
+                $likedishes[] = new FavouriteDish((int)$likedish['IdFavouriteDish'], $IdUser, (int)$likedish['IdDish']);
+            }
 
-        if($idDishes= $stmt->fetch()){
-            return $idDishes;
-        }
-        else{
-            return null;
+            return $likedishes;
         }
 
-        
-    }
+        static function addFavouriteDish(PDO $db, int $IdUser, int $IdDish){
+            $stmt = $db->prepare('Insert into FavouriteDish (IdUser, IdDish) VALUES (?, ?)');
+            if($stmt->execute(array($IdUser, $IdDish)))
+                return true;
 
-    static function createNewFavouriteDish(PDO $db, int $idUser, int $idDishes){
-        $stmt = $db->prepare('insert int favouriteDish (idUser, idDishes) VALUES(?,?)');
-        $stmt->execute(array($idUser, $idDishes));
-    }
-
-    static function getFavouriteDishId(PDO $db, int $idUser, int $idDishes){
-        $stmt = $db->prepare('select idFavouriteDish from favouriteDish where idUser = ? and idDishes = ?');
-        $stmt->execute(array($idUser, $idDishes));
-
-        if($idFavouriteDish = $stmt->fetch()){
-            return $idFavouriteDish;
+            return false;
         }
-        else{
-            return null;
+
+        static function removeFavouriteDish(PDO $db, int $IdUser, int $IdDish){
+            $stmt = $db->prepare('DELETE FROM FavouriteDish Where IdUser = ? AND IdDish = ?');
+            if($stmt->execute(array($IdUser, $IdDish)))
+                return true;
+
+            return false;
         }
+
     }
-
-
 ?>

@@ -13,6 +13,7 @@
         <link rel="stylesheet" href="../style/styleRestaurantView.css">
         <link rel="stylesheet" href="../style/dishdetails.css">
         <link rel="stylesheet" href="../style/form.css">
+        <link rel="stylesheet" href="../style/responsive.css">
         <meta charset="UTF-8">
         <title>Ready2Eat</title>
 
@@ -53,6 +54,7 @@
         <link rel="stylesheet" href="../style/styleRestaurantView.css">
         <link rel="stylesheet" href="../style/dishdetails.css">
         <link rel="stylesheet" href="../style/form.css">
+        <link rel="stylesheet" href="../style/responsive.css">
 
         <meta charset="UTF-8">
         <title>Ready2Eat</title>
@@ -94,6 +96,7 @@
         <link rel="stylesheet" href="../style/editinfoform.css">
         <link rel="stylesheet" href="../style/editrestaurantform.css">
         <link rel="stylesheet" href="../style/editdishform.css">
+        <link rel="stylesheet" href="../style/responsive.css">
         <meta charset="UTF-8">
         <title>Ready2Eat</title>
 

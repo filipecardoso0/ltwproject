@@ -6,15 +6,15 @@
 
     $session = new Session();
     $db = getDatabaseConnection();
-    $userid = $_POST['restaurantid'];
+    $userid = $_POST['userid'];
     $restaurantid = $_POST['restaurantid'];
 
     if($session->isLoggedIn()){
         if(FavouriteRestaurant::addFavouriteRestaurant($db, (int)$userid, (int)$restaurantid)){
-            $session->addMessage('success', 'Restaurant Removed from Favourites');
+            $session->addMessage('success', 'Restaurant Added to Favourites');
         }
         else{
-            $session->addMessage('error', 'Something Went Wrong while removing Restaurant from Favourites');
+            $session->addMessage('error', 'Something Went Wrong while adding Restaurant to Favourites');
         }
     }
 
