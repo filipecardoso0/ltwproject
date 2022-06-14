@@ -17,3 +17,4 @@
 - [x] Mark Restaurant as Favourite
 - [x] Mark Dish as Favourite
 - [x] Customer Can Leave a Review
+- [x] Responsive Design (Partial)
