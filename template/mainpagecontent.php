@@ -3,6 +3,8 @@
     declare(strict_types=1);
 
     require_once(__DIR__ . '/../db/categoryclass.php');
+    require_once(__DIR__ . '/../db/review.php');
+
 
 function output_main_content(PDO $db, $restaurants, $categories){ ?>
 
@@ -13,7 +15,8 @@ function output_main_content(PDO $db, $restaurants, $categories){ ?>
             <a href="restaurantpage.php?id=<?=$restaurant['IdRestaurant']?>"><img src="images/thumbs_medium/restaurant_<?=$restaurant['IdRestaurant']?>.jpg" alt="restaurant profile picture"></a>
             <h2><a href="restaurantpage.php?id=<?=$restaurant['IdRestaurant']?>"><?=$restaurant['name']?></a></h2>
             <p>Morada: <?=$restaurant['address']?></p>
-            <p>Rating do Restaurante 1</p>
+            <?php $review = Review::getAvgReview($db,(int) $restaurant['IdRestaurant']);?>
+            <p>Rating do Restaurante: <?=$review?></p>
             <p>Média de Preco: <span>€</span></p>
         </article>
     <?php  } ?>
