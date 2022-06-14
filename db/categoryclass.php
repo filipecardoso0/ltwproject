@@ -31,6 +31,8 @@
             return $stmt->fetchAll();
         }
 
+        //TODO -> RETURN OBJECT INSTEAD
+
         static function getAllDishCategories(PDO $db){
             $stmt = $db->prepare('Select * From DishCategory');
             $stmt->execute();

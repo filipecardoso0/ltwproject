@@ -34,6 +34,18 @@
             return $dishes;
         }
 
+        static function getCategoryDishes(PDO $db, int $idrestaurant, int $categoryid){
+            $stmt = $db->prepare('Select IdDish, Name, Price FROM Dish Where IdRestaurant = ? AND IdCategory = ?');
+            $stmt->execute(array($idrestaurant, $categoryid));
+
+            $dishes = array();
+            while($dish = $stmt->fetch()){
+                $dishes[] = new Dish((int)$dish['IdDish'], $idrestaurant, $categoryid, $dish['Name'], (int)$dish['Price']);
+            }
+
+            return $dishes;
+        }
+
         static function removeDishDb(PDO $db, int $dishid) :?bool{
             $stmt = $db->prepare('Delete from Dish Where IdDish = ?');
             if($stmt->execute(array($dishid)))
@@ -57,15 +69,14 @@
             return new Dish($dishid, (int)$dish['IdRestaurant'], (int)$dish['IdCategory'], $dish['Name'], (int)$dish['Price']);
         }
 
-            static function getDishWithNameandRestaurantId(PDO $db, string $name, int $idRestaurant){
-            $stmt = $db->prepare('SELECT IdDish, IdCategory, Price from Dish Where Name = ? AND IdRestaurant = ?');
-            $stmt->execute(array($name, $idRestaurant));
+        static function getDishWithNameandRestaurantId(PDO $db, string $name, int $idRestaurant){
+        $stmt = $db->prepare('SELECT IdDish, IdCategory, Price from Dish Where Name = ? AND IdRestaurant = ?');
+        $stmt->execute(array($name, $idRestaurant));
 
-            if($dish = $stmt->fetch())
-                return new Dish((int)$dish['IdDish'], (int)$idRestaurant, (int)$dish['IdCategory'], $name, (int)$dish['Price']);
-            else
-                return null;
-
+        if($dish = $stmt->fetch())
+            return new Dish((int)$dish['IdDish'], (int)$idRestaurant, (int)$dish['IdCategory'], $name, (int)$dish['Price']);
+        else
+            return null;
         }
 
         static function getDishName(PDO $db, int $IdDish){

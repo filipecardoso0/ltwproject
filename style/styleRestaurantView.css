@@ -35,21 +35,33 @@ restaurantheader h1{
     color: black;
 }
 
-#carta h2{
+#dishmenu h2{
     margin-left: 2.2em;
 }
 
-#carta{
+#dishmenu{
     grid-row: 4/5;
     grid-column: 2/3; 
     display: grid;  
 }
 
-#carta article{
+#dishmenu section{
     display: flex; 
     flex-direction: row; 
     flex-grow: 1;
     justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+#dishmenu section article img{
+    height: 200px;
+    width: 200px;
+    border: 5px solid black;
+    border-radius: 5px;
+}
+
+#dishmenu section article p{
+    text-align: center;
 }
 
 #restaurantheader h1{
@@ -63,4 +75,14 @@ restaurantheader h1{
     float: right;
     margin-right: 1em;
 }
+
+#categoryempty{
+    font-size: 15px;
+}
+
+#categoryempty i{
+    margin-left: 10px;
+    color: #0679ff;
+}
+
 
