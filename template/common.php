@@ -15,6 +15,9 @@
         <link rel="stylesheet" href="../style/form.css">
         <link rel="stylesheet" href="../style/cartstyle.css">
         <link rel="stylesheet" href="../style/responsive.css">
+        <link rel="stylesheet" href="../style/styleResponsive.css">
+        <link rel="stylesheet" href="../style/styleRestaurantViewResponsive.css">
+
         <meta charset="UTF-8">
         <title>Ready2Eat</title>
 
@@ -38,6 +41,13 @@
         <a href="#0" id="login">Login</a>
         <a href="#0" id="register">Register</a>
 
+        <li href="" id="icon"></li> 
+        <label class="icon" for="icon">
+            <i class="fa-solid fa-window-minimize"></i>
+        </label>
+
+
+
         <section id="searchbar">
             <i class="fa-solid fa-magnifying-glass"></i>
             <input type="text" name="search" placeholder="What are you looking for?">
@@ -60,6 +70,8 @@
         <link rel="stylesheet" href="../style/cartstyle.css">
         <link rel="stylesheet" href="../style/form.css">
         <link rel="stylesheet" href="../style/responsive.css">
+        <link rel="stylesheet" href="../style/styleResponsive.css">
+
 
         <meta charset="UTF-8">
         <title>Ready2Eat</title>
@@ -103,6 +115,10 @@
         <link rel="stylesheet" href="../style/editrestaurantform.css">
         <link rel="stylesheet" href="../style/editdishform.css">
         <link rel="stylesheet" href="../style/responsive.css">
+        <link rel="stylesheet" href="/style/PEstyleResponsive.css">
+        <link rel="stylesheet" href=".../style/editrestaurantformResponsive.css">
+        
+        
         <meta charset="UTF-8">
         <title>Ready2Eat</title>
 

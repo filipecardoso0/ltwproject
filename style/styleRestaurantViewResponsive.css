@@ -1,0 +1,19 @@
+@media (max-width: 28.125rem){
+
+
+    #filters{
+        display: none;
+    }
+
+    #dishmenu section article img{
+        height: 150px;
+        width: 150px;
+        border: 5px solid black;
+        border-radius: 5px;
+    }
+
+    #dishmenu section article p{
+        text-align: center;
+    }
+    
+}
