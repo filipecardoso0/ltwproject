@@ -7,6 +7,8 @@
     require_once('db/connectiondb.php');
     require_once('db/categoryclass.php');
     require_once('db/restaurantclass.php');
+    require_once('db/review.php');
+
 
     $db = getDatabaseConnection();
 
