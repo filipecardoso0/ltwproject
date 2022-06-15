@@ -90,7 +90,7 @@
     <header>
         <a href="index.php">Ready2Eat</a>
         <a id="shopping-cart" href="#0">Cart</a>
-        <a href="editprofile.php" id="navname"><img src="https://i.picsum.photos/id/658/200/200.jpg?hmac=f24wxXCkgtH72eZ6mY95KRxTyvEG-_3ysR9z-R0a1QM" alt="User Profile Picture"> <?=$name?></a>
+        <a href="editprofile.php" id="navname"><!--<img src="https://i.picsum.photos/id/658/200/200.jpg?hmac=f24wxXCkgtH72eZ6mY95KRxTyvEG-_3ysR9z-R0a1QM" alt="User Profile Picture">--> <?=$name?></a>
         <a href="actions/action_logout.php">Sign Out</a>
 
         <section id="searchbar">
@@ -147,6 +147,7 @@
             <ul>
                 <li>Copyright &#169 Ready2Eat</li>
                 <li>All rights reserved</li>
+                <!--
                 <li>Contactos:
                     <a href="">
                         Facebook
@@ -161,6 +162,7 @@
                         <i class="fa-brands fa-twitter"></i>
                     </a>
                 </li>
+                -->
             </ul>
         </footer>
 <?php } ?>

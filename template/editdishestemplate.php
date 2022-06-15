@@ -1,7 +1,5 @@
 <?php
 
-    //TODO REMOVE style="display: none" on every id input (Verify the restaurant ones)
-
     function output_edit_dishes_content($dishes, $categories){ ?>
 
         <section class="userRestaurants">
