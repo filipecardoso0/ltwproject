@@ -1,7 +1,5 @@
 //GENERAL FUNCTIONS -> MANAGE MODAL DISPLAY ONLY
 
-//TODO SHOW SOME NICE ALERTS/NOTIFICATIONS -> LIKE THE PHP ONES BUT IN JS OR EVEN DISPLAY THE PHP ONES WITH JS HELP AND THEN CLEAR THE ARRAY
-
 function confirmchanges_displayform(){
     const confirmchangesform = document.querySelector("#confirmchangesform .editinfoform")
     confirmchangesform.classList.add("show")

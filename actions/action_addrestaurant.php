@@ -1,7 +1,5 @@
 <?php
 
-    //TODO CHANGE RESTAURANT::GET... TO GET THE RESTAURANT WHICH WAS JUST ADDED TO $db->lastInsertId() -> Do this on User too
-
     require_once(__DIR__ . '/../db/connectiondb.php');
     require_once(__DIR__ . '/../db/restaurantclass.php');
     require_once(__DIR__ . '/../utils/session.php');
@@ -11,8 +9,6 @@
     $session = new Session();
 
     $db = getDatabaseConnection();
-
-    //TODO VERIFY IF THERE IS ALREADY A RESTAURANT WITH THAT NAME
 
     if(Restaurant::createRestaurant($db, (int)$session->getId(), (int)$_POST['category'], $_POST['name'], $_POST['address']) == FALSE)
         $session->addMessage('error', 'Something Went Wrong while creating the restaurant');

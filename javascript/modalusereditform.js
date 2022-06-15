@@ -1,4 +1,3 @@
-//TODO CODE CLEANUP: REMOVE "HARDCODED" CONFIRMCHANGES FORM AND DISPLAY IT AS IN THE OTHER FORMS
 
 function display_confirmchanges(){
     const form = document.querySelector("#forms section:last-child")

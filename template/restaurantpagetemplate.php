@@ -68,10 +68,10 @@
     </section>
     <?php 
     if(isset($_POST['post'])){
-        if (Review::checkHasOrdered($db, (int)$restaurantinfo->IdRestaurant, (int)$userid)){
+        /*if (Review::checkHasOrdered($db, (int)$restaurantinfo->IdRestaurant, (int)$userid)){ -> Didn't implement orders so this won't work */
             Review::removeReview($db, (int)$restaurantinfo->IdRestaurant, (int)$userid);
             Review::createReview($db,(string) $_POST['comment'], (int) $_POST['rating'],(int) $restaurantinfo->IdRestaurant, (int) $userid);
-        }
+        //}
     }?>
 
         <aside id="categorias">

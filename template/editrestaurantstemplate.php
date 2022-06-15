@@ -21,7 +21,6 @@
                 //Gets restaurant categoryTitle
                 $category = Category::getCategoryWithId($db, (int)$restaurant['IdCategory']);
 
-                //TODO $userRestaurants to a varaible already given by a SQL Query none of this stupid verifications
                 //Only outputs restaurant if it belongs to the user
                 if((int)$session->getId() === (int)$restaurant['IdOwner']) { ?>
             <article>
@@ -30,7 +29,10 @@
                 <input type="text" style="display: none" value="<?=$restaurant['IdRestaurant']?>">
                 <!-- Restaurant INFO -->
                 <img id="restaurantprofilepicture" src="../images/originals/restaurant_<?=$restaurant['IdRestaurant']?>.jpg" alt = "restaurant photo">
+                <!--
+                Didn't implement
                 <p id="editrestaurantprofilepic"><a href="#0">Edit Restaurant Profile Picture <i class="fa-solid fa-pen-to-square editicon"></i></a></p>
+                -->
                 <p id="restaurantname">Nome: <a href="#0"> <?=$restaurant['name']?> </a><i class="fa-solid fa-pen-to-square editicon"></i></p>
                 <p id="restaurantaddress"> Address:  <a href="#0"> <?=$restaurant['address']?> </a><i class="fa-solid fa-pen-to-square editicon"></i></p>
                 <p id="restaurantcategory"> Categoria: <a href="#0"> <?=$category->title?> </a><i class="fa-solid fa-pen-to-square editicon"></i></p>

@@ -17,11 +17,13 @@ function output_main_content(PDO $db, $restaurants, $categories){ ?>
             <p>Morada: <?=$restaurant['address']?></p>
             <?php $review = Review::getAvgReview($db,(int) $restaurant['IdRestaurant']);?>
             <p>Rating do Restaurante: <?=$review?></p>
-            <p>Média de Preco: <span>€</span></p>
+            <!--<p>Média de Preco: <span>€</span></p>-->
         </article>
     <?php  } ?>
     </section>
 
+    <!--
+    Was supposed to be implemented, but do to lack of time we couldn't do it
     <aside>
         <section id="orderby">
             <p>Ordenar por:</p>
@@ -55,6 +57,8 @@ function output_main_content(PDO $db, $restaurants, $categories){ ?>
             <?php } ?>
         </select >
     </aside>
+            -->
+
 
 
 <?php } ?>
